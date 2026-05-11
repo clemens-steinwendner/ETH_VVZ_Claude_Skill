@@ -174,6 +174,40 @@ def list_units(*, semkez=None, level=None, department=None, section=None,
     }))
 
 
+def list_units_detailed(*, detail_limit=10, **kwargs):
+    """`list_units` + hydration, capped at `detail_limit` units.
+
+    Prevents the model from fanning out 40+ sequential `get_unit` calls. If the
+    typed list returns more IDs than `detail_limit`, only the first
+    `detail_limit` are hydrated; the rest are returned as bare IDs so the
+    caller can decide whether to enrich them later.
+
+    Use this when the answer is a course list and you actually want full
+    unit bodies — but **`search()` returns full bodies inline in a single
+    call**, so prefer that when filters can be expressed as a search query.
+
+    Returns:
+        {"ok": True, "data": {"units": [<unit_dict>, ...],
+                              "total_ids": int,
+                              "unhydrated_ids": [int, ...]}}
+    """
+    r = list_units(**kwargs)
+    if not r["ok"]:
+        return r
+    ids = r["data"]
+    hydrate_ids = ids[:detail_limit]
+    units = []
+    for uid in hydrate_ids:
+        u = get_unit(uid)
+        if u["ok"]:
+            units.append(u["data"])
+    return _ok({
+        "units": units,
+        "total_ids": len(ids),
+        "unhydrated_ids": ids[detail_limit:],
+    })
+
+
 def get_unit(unit_id):
     return _request(_build_url(f"/api/v1/unit/{int(unit_id)}/get"))
 

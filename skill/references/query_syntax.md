@@ -146,6 +146,37 @@ Best for "I'm interested in <topic>" → keyword discovery across multiple field
 - `offered` — programme/section name where course is offered (substring match)
 - `level` — `BSC`, `MSC`, `DR`
 
+### Result shape (v2)
+
+The response is a dict:
+
+```
+{
+  "total": <int>,
+  "parsed_query": "<echo of what the parser interpreted>",
+  "results": {
+    "<course_number>": {
+      "number": "<course_number>",
+      "units": [
+        {<full LearningUnit dict for newest semester>},
+        {<full LearningUnit dict for an earlier semester>},
+        ...
+      ]
+    },
+    ...
+  }
+}
+```
+
+**Key fact:** v2 search aggregates **by course number**. Each entry's `units`
+list contains every historical occurrence of that course, **newest first**.
+So to filter by a specific semester, take `units[0]` (or any `u for u in units
+if u["semkez"] == target`). The full LearningUnit body is inline — no
+`get_unit` follow-up needed.
+
+This makes `search()` strictly more efficient than `list_units` + N×`get_unit`
+whenever the filters can be expressed in the search grammar.
+
 ### Ordering
 
 - `order_by` ∈ `{title, title_german, title_english, number, credits, year, semester, lecturer, descriptions, level, department, language, offered, examtype, coursereview}`

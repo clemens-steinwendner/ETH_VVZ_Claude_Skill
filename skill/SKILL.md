@@ -25,11 +25,57 @@ if _skill is None:
     raise RuntimeError("eth-vvz skill folder not found under /mnt/")
 sys.path.insert(0, _skill)
 from vvz_client import (
-    search, list_units, get_unit, get_unit_sections, get_unit_lecturers,
-    get_section, list_sections, get_lecturer, list_semesters, get_course,
+    search, list_units, list_units_detailed, get_unit,
+    get_unit_sections, get_unit_lecturers, get_section, list_sections,
+    get_lecturer, list_semesters, get_course,
 )
 from requirements_lookup import get_requirements, list_programmes
 ```
+
+## Canonical workflows (follow these — do not re-derive)
+
+Each top question shape has a near-optimal call sequence. Follow it. **Most users will get an answer in 1–4 calls, not 50.** The trick: `/v2/search` returns full unit bodies inline, so you rarely need `get_unit` after it.
+
+### "Show me courses in <programme>/<category>, <semester>, <filters>"
+
+1. (Once per session) `list_semesters()` — verify the target semester exists.
+2. **ONE call:** `search('offered:"<category name in English>" level:<BSC|MSC> credits>=X credits<=Y', limit=50, order_by="number", order="asc")`. The unit bodies come back in `results[<course_number>]["units"]` — already enriched with `credits`, `language`, `title_english`, `exam_type`, `abstract`, `levels`, `departments`, `additional`.
+3. Client-side: each `results[<number>]["units"]` is a list ordered newest-first. Take `units[0]` (or filter by target `semkez`).
+4. Fall back to `list_sections(name_search=...)` → `get_section` → `list_units_detailed(section=ID, detail_limit=10)` only if `offered:` text can't disambiguate two same-named subcategories.
+
+Typical total: **2–3 calls**, not 4 + 4 + 42.
+
+### "Tell me about course <number>"
+
+1. **ONE call:** `search('number:"252-0463-00L"', limit=1)`. The unit body is in the result. (Course codes contain dashes — always quote them.)
+2. Only call `get_unit_lecturers` + `get_lecturer` if the user asked who teaches it.
+3. Only call `get_course` if the user asked about meeting times.
+
+Typical total: **1 call** (3 if lecturer + times are both asked).
+
+### "Does course X count for my <programme>?"
+
+1. `search('number:"<num>"', limit=1)` → unit id from the response.
+2. `get_unit_sections(unit_id)` → list of section IDs.
+3. `get_requirements("<programme>")` → category labels + Reglement URL.
+4. For each section ID returned in step 2 (typically 2–5, not the whole tree): `get_section(id)` → match the section name against the programme's categories.
+
+Typical total: **4 + N calls** where N = sections the course is in (usually 2–5).
+
+### "I'm interested in <topic>"
+
+1. **ONE call:** `search('(title:<t> OR objective:<t> OR content:<t>) level:<lvl>', limit=20, order_by="year")` — order by year so newest semester is first per course.
+2. Client-side: dedupe by course number, take `units[0]` per course, rank by relevance/recency.
+
+Typical total: **1 call**.
+
+### "How long has 401-0131-00L existed at ETH?"
+
+1. **ONE call:** `search('number:"401-0131-00L"', limit=200)`. The response groups all historical instances under one entry — `results["401-0131-00L"]["units"]` is the list, one per semester. Collect distinct `semkez`. Disclose the 2009–2019 vvzapi gap.
+
+Typical total: **1 call**.
+
+---
 
 ## Common gotchas (read these before your first tool call)
 
@@ -48,6 +94,10 @@ The vvzapi return shapes and field names trip people up. Save round-trips by kno
 - **The latest semester in vvzapi may lag.** Future semesters appear weeks/months after publication on vvz.ethz.ch. **Always call `list_semesters()` first** when the user asks about a specific upcoming semester; if it's not there, use the most recent available as a proxy and disclose the substitution.
 - **`department=` filter on `list_units` is buggy** for several IDs (5/INFK, 8/MATH, 18/ITET …) — never use it. Filter by course-number prefix client-side; see `references/programme_shorthand.md`.
 - **Helpers always return `{"ok": True/False, ...}`** — check `r["ok"]` before reading `r["data"]`.
+- **Cache your own results within a turn.** Helpers are deterministic. If you already called `get_requirements("BSc Informatik")`, `list_semesters()`, or any structural lookup in this turn, **do not call it again** — reuse the Python variable. The sandbox preserves Python state across code-execution blocks within one chat turn.
+- **`/v2/search` returns full unit bodies, not bare IDs.** When the user asks for a *list of courses* with details, prefer `search()` over `list_units` — search hands you `credits`, `language`, `title_english`, `exam_type`, `levels`, `departments`, `abstract`, `additional` in one round trip. `list_units` only returns IDs you'd have to re-fetch with `get_unit` (N more calls).
+- **v2 search aggregates by course number.** `results` is keyed on course number; each value's `units` list holds every historical semester of that course (newest first). Take `units[0]` or filter by `semkez` client-side.
+- **Do not fetch lecturers by default.** `get_unit_lecturers` + `get_lecturer` only run if the user asked "who teaches X" — `get_lecturer` returns `None` for many IDs anyway. Skip speculative lecturer lookups; you'll save several roundtrips per query.
 
 ## Tools (Python helpers)
 
@@ -89,13 +139,13 @@ These live in `references/`. Use the Read tool only when the user's question act
 
 | User asks about | Approach |
 |---|---|
-| **A specific course** ("tell me about 252-0463-00L") | `list_units(number="252-0463-00L", semkez=<current>)` → if not in current semester, search across semesters with `search(q='number:"252-0463-00L"', limit=200)` (the course code MUST be quoted because of the dashes) → `get_unit(id)` → present (single-course-deep-dive shape). |
-| **Filtered course list** ("BSc INFK Wahlfächer in HS25, 4–8 ECTS, English") | Locate the Wahlfächer section: `list_sections(semkez="2025W", name_search="Wahlfächer")` → pick the BSc-Informatik one (filter by parent or by inspecting `name`). Then `list_units(semkez="2025W", section=<id>, language="English", ects_min=4, ects_max=8)`. To filter by department (when no section is implied), use **course-number prefix** client-side (e.g. keep only `number.startswith("252-")`) — do NOT use the `department=` filter. |
+| **A specific course** ("tell me about 252-0463-00L") | **One call:** `search('number:"252-0463-00L"', limit=1)`. The unit body is in `results["252-0463-00L"]["units"][0]` (newest semester). Only follow up with `get_unit_lecturers` / `get_course` if lecturers / meeting times were asked. |
+| **Filtered course list** ("BSc INFK Wahlfächer in HS25, 4–8 ECTS, English") | **Prefer v2 search:** `search('offered:"Wahlfächer Bachelor Informatik" level:BSC credits>=4 credits<=8', limit=50, order_by="number", order="asc")`. Filter `units[*].semkez == "2025W"` client-side and take the newest unit per course number. Fall back to `list_sections(name_search="Wahlfächer")` → `get_section` → `list_units_detailed(section=<id>, detail_limit=10)` only if `offered:` text is ambiguous between two same-named subcategories. To filter by department (when no section is implied), use **course-number prefix** client-side — do NOT use the `department=` filter. |
 | **Interest-based** ("I'm interested in cryptography") | Multi-pass: `search(q="objective:cryptography", limit=20)` then `search(q="title:cryptography", limit=20)` then dedupe by course number, rank by recency, pick 3–5. Present as detailed list. |
 | **Bioinformatics-style overview** | Same as interest, but group results by department (use course-number prefix) and present a flat ranked list — no "foundational/specialized" curriculum narrative; that's plan-generation, out of scope. |
 | **GESS / Wahlfächer / Pflichtwahlfach** | Use `programme_shorthand.md` to map the term, then `search(q='offered:"Wissenschaft im Kontext"')` or `list_sections(name_search="Wissenschaft im Kontext")` + `list_units(section=...)`. Always say which programme's quota you're using. |
 | **Capacity** ("how many places?") | `get_unit(id)` → `max_places` (if null: catalogue does not publish a cap — say so). Also surface `general_restrictions` text and `signup_start`/`signup_end`. **Never claim historical enrolment numbers** — ETH does not publish them. |
-| **How long has this course existed** | `search(q='number:"<num>"', limit=200)` (quote the dashed course code) → collect distinct `semkez` → present range. **Always disclose the 2009–2019 vvzapi data gap** — do NOT report the course was discontinued during that window. |
+| **How long has this course existed** | **One call:** `search('number:"<num>"', limit=200)`. The response groups all historical instances under `results["<num>"]["units"]` (newest first). Collect distinct `semkez` → present range. **Always disclose the 2009–2019 vvzapi data gap** — do NOT report the course was discontinued during that window. |
 | **Semester / FS-HS** | Resolve user input to `semkez` per `references/semester_codes.md`. For "this/next semester", use today's date + the resolution rules. |
 | **Times of day / Uhrzeiten** | `get_course(unit_id)` returns the per-instance `timeslots` (weekday + start/end time). Present verbatim. `get_unit` does NOT carry meeting times. **No conflict detection between courses** — that's plan-validation, out of scope. |
 | **Schriftlich/mündlich** | `get_unit(id)` → `exam_type` and `exam_mode`. Surface verbatim. |
@@ -104,7 +154,14 @@ These live in `references/`. Use the Read tool only when the user's question act
 
 ## Response shape
 
-Default to **detailed** (course number + linked title + ECTS + language + semester + lecturer + exam type + 1-line relevance + matching "Offered in" categories). Use **compact** (only number + title + ECTS + language) when the user asks for a list, table, or "just the names".
+**Detailed entries are capped at 5 by default.** For larger result sets:
+
+- Top 5 results → **detailed** (course number + linked title + ECTS + language + semester + exam type + 1-line relevance + matching "Offered in" categories when programme is known).
+- Rest of the results → **compact** table or one-line bullets (course number + title link + ECTS + language) until the user asks "show me details for X" or "give me the full long-form list".
+
+**Only hydrate (extra calls like `get_unit_lecturers` or `get_course`) the entries you actually present in detail.** Never hydrate the compact tail.
+
+If the user explicitly asks "all", "show me everything", or "full list", drop the cap but still keep the long tail compact.
 
 Always link to vvz.ethz.ch:
 `https://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=<unit_id>&semkez=<semkez>&lang=en` (use `lang=de` if the user wrote in German).
