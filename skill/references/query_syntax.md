@@ -22,7 +22,7 @@ Best for "show me courses matching these structured filters". All params optiona
 | `lecturer_surname` | string | `Krause` | Surname. |
 | `type` | string | `O`, `W`, `W+`, `E-`, `Z`, `Dr` | Compulsory / Wahlfach / etc. |
 | `language` | string | `English`, `German` | Language of instruction. |
-| `periodicity` | int | `0`=once, `1`=annual, `2`=every semester, `3`=biennial | |
+| `periodicity` | int | `0`=once, `1`=annual, `2`=every semester, `3`=biennial | Request param. **Note:** the corresponding *response* field on a unit is `course_frequency` (int) and/or `occurence` (string, often null) — *not* `periodicity`. |
 | `ects_min` | float | `4` | Minimum ECTS. |
 | `ects_max` | float | `8` | Maximum ECTS. |
 | `content_search` | string | `cryptography` | Searches catalogue data (abstract / objective). |
@@ -30,6 +30,11 @@ Best for "show me courses matching these structured filters". All params optiona
 | `offset` | int | | |
 
 ### Department IDs
+
+These IDs come from vvzapi's internal database (sourced from the openapi spec
+at `https://vvzapi.ch/openapi.json`). They could in principle be renumbered
+in a future vvzapi release — re-verify the table against the spec when
+republishing the skill.
 
 | ID | Department |
 |---|---|
@@ -128,6 +133,9 @@ Best for "I'm interested in <topic>" → keyword discovery across multiple field
 - ❌ `-field:value` — silently dropped.
 - ❌ `title:crypto*` — wildcards not supported.
 - ❌ `semkez:` filter inside the `q=` query — **silently dropped** in v2 search. Use `/v1/unit/list` for semester filtering, or filter results client-side.
+- ⚠️ Course numbers contain dashes (`401-3010-57L`). The Scryfall-style parser
+  splits on dashes unless you **quote** the value. Always write
+  `number:"401-3010-57L"` (with double quotes), not `number:401-3010-57L`.
 
 ---
 

@@ -30,9 +30,8 @@ These have data but the data is incomplete or imprecise. Always add a hedge.
 | Prerequisites | "Prerequisites listed in the catalogue: [verbatim text]. The catalogue lists requirements as prose, not as a verified dependency graph — treat as recommendations and check with the lecturer for binding cases." |
 | Historical existence of a course (`number:` query) | "vvzapi has data for [list]. **Note: vvzapi has no data from 2009 to 2019**; if the course existed then, we cannot see it. Pre-2009 absence in vvzapi also doesn't prove the course didn't exist." |
 | Credit eligibility | "Per the [Reglement edition + year], course X is listed under [section] for programme Y. Verify on vvz.ethz.ch and check the 'Stand' date on your Reglement before binding action." |
-| Anything sourced from `programmes_requirements.json` | Always cite `data_asof.requirements_verified_at` and the Reglement URL from the record. |
-| When `semkez > data_asof.vvzapi_snapshot_semkez` | "Our bundled section snapshot is from [semester]; this answer may be stale — verify on vvz.ethz.ch." |
-| Course ratings | "vvzapi user rating: X/5 from N voters. Note this is a small, self-selected sample and not an official ETH metric." |
+| Anything sourced from `programmes_requirements.json` | Always cite the `data_asof.generated_at` date returned by `get_requirements()` and the `reglement.url` from the record. Add: "verify on vvz.ethz.ch and check the Stand date on your Reglement before any binding action." |
+| Course / lecturer ratings | "vvzapi user rating: X/5 from N voters. This is a small, self-selected sample and not an official ETH metric." |
 
 ## When vvzapi is unreachable
 

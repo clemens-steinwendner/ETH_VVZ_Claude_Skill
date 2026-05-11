@@ -35,18 +35,22 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import sys
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
 
 BASE = "https://vvzapi.ch"
-USER_AGENT = "vvz-eth-skill/0.1 (+https://github.com/anthropics/claude-code; polite-client)"
+USER_AGENT = (
+    "eth-vvz-claude-skill/0.1 "
+    "(+https://github.com/clemens-steinwendner/ETH_VVZ_Claude_Skill; polite-client)"
+)
 CACHE_DIR = "/tmp/vvz_cache"
+CACHE_TTL_S = 6 * 60 * 60  # 6 hours — vvzapi data can shift mid-semester
 MIN_INTERVAL_S = 1.0
 MAX_RETRIES = 3
 TIMEOUT_S = 15
-LARGE_PAYLOAD_WARN_BYTES = 5_000_000
 
 _last_request_ts = 0.0
 
@@ -82,11 +86,14 @@ def _request(url: str, *, use_cache: bool = True) -> dict:
     _ensure_cache()
     cache_file = _cache_path(url)
     if use_cache and os.path.exists(cache_file):
-        try:
-            with open(cache_file) as f:
-                return _ok(json.load(f))
-        except (OSError, json.JSONDecodeError):
-            pass  # corrupted cache — refetch
+        age_s = time.time() - os.path.getmtime(cache_file)
+        if age_s < CACHE_TTL_S:
+            try:
+                with open(cache_file) as f:
+                    return _ok(json.load(f))
+            except (OSError, json.JSONDecodeError):
+                pass  # corrupted cache — refetch
+        # else: expired, fall through to refetch
 
     for attempt in range(MAX_RETRIES):
         elapsed = time.time() - _last_request_ts
@@ -98,9 +105,6 @@ def _request(url: str, *, use_cache: bool = True) -> dict:
             _last_request_ts = time.time()
             with urllib.request.urlopen(req, timeout=TIMEOUT_S) as resp:
                 body = resp.read()
-            if len(body) > LARGE_PAYLOAD_WARN_BYTES:
-                # not an error, but the model should be aware before stuffing into context
-                pass
             try:
                 data = json.loads(body)
             except json.JSONDecodeError as e:
@@ -186,6 +190,16 @@ def get_unit_lecturers(unit_id, *, limit=100, offset=0):
     ))
 
 
+def get_course(unit_id):
+    """Per-instance scheduling for a unit: meeting times, hours, types.
+
+    Returns a list of course-instance records with `timeslots`, `hours`,
+    `type` (V/U/P/S), `semkez`. Use this to answer "Uhrzeiten" questions —
+    `get_unit` does NOT carry meeting times.
+    """
+    return _request(_build_url(f"/api/v1/course/get/{int(unit_id)}"))
+
+
 def get_section(section_id):
     return _request(_build_url(f"/api/v1/section/{int(section_id)}/get"))
 
@@ -212,37 +226,62 @@ def list_semesters():
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    print("smoke test — fetching a few endpoints...")
+    failures = []
+
+    def _check(label, cond, detail=""):
+        status = "ok" if cond else "FAIL"
+        print(f"  {label:60s} {status} {detail}")
+        if not cond:
+            failures.append(label)
+
+    print("smoke test — fetching a few endpoints...\n")
 
     r = list_semesters()
-    print("list_semesters:", "ok" if r["ok"] else r,
-          "count=", len(r["data"]) if r["ok"] else "-")
+    _check("list_semesters returns ≥1 semester",
+           r["ok"] and len(r["data"]) > 0,
+           f"count={len(r['data']) if r['ok'] else r}")
 
-    r = list_units(semkez="2026S", department=5, level="BSC", ects_min=4, ects_max=8, limit=3)
-    print("list_units(BSc Informatik 2026S 4-8 ECTS):",
-          "ok" if r["ok"] else r,
-          "ids=", r["data"][:3] if r["ok"] else "-")
+    # NOTE: department= filter is buggy upstream for several IDs (see
+    # references/query_syntax.md). Smoke-test relies on `level` + `title`
+    # which DO filter correctly, then verifies via course-number prefix.
+    r = list_units(semkez="2026S", level="BSC", title="Algorithms", limit=5)
+    _check("list_units(BSc 2026S title=Algorithms) returns IDs",
+           r["ok"] and isinstance(r["data"], list) and len(r["data"]) > 0,
+           f"ids={r['data'][:3] if r['ok'] else r}")
+
     if r["ok"] and r["data"]:
         first = get_unit(r["data"][0])
-        print("  -> get_unit(first):",
-              first["data"].get("number") if first["ok"] else "?",
-              "|",
-              (first["data"].get("title_english") or first["data"].get("title"))
-              if first["ok"] else first)
+        if first["ok"]:
+            d = first["data"]
+            _check("get_unit() exposes plural fields",
+                   isinstance(d.get("levels"), list)
+                   and isinstance(d.get("departments"), list),
+                   f"levels={d.get('levels')} departments={d.get('departments')}")
+            _check("get_unit() title contains 'algorith' (case-insensitive)",
+                   "algorith" in (d.get("title_english") or d.get("title") or "").lower(),
+                   f"number={d.get('number')} title={d.get('title_english') or d.get('title')}")
 
-    r = search("objective:cryptography", limit=3)
-    print("search(objective:cryptography):",
-          "ok" if r["ok"] else r,
-          "total=", r["data"].get("total") if r["ok"] else "-")
-
-    r = get_unit(46593)
-    print("get_unit(46593):",
-          "ok" if r["ok"] else r,
-          "title=", r["data"].get("title_english") if r["ok"] else "-")
+    r = search('objective:cryptography', limit=3)
+    _check("search(objective:cryptography) returns >0 total",
+           r["ok"] and r["data"].get("total", 0) > 0,
+           f"total={r['data'].get('total') if r['ok'] else r}")
 
     r = get_unit_sections(46593)
-    print("get_unit_sections(46593):",
-          "ok" if r["ok"] else r,
-          "sections=", len(r["data"]) if r["ok"] else "-")
+    _check("get_unit_sections returns bare list of int IDs",
+           r["ok"] and isinstance(r["data"], list)
+           and all(isinstance(x, int) for x in r["data"]),
+           f"sample={r['data'][:3] if r['ok'] else r}")
 
-    print("done.")
+    r = get_course(46593)
+    _check("get_course returns instance list with 'timeslots' key",
+           r["ok"] and isinstance(r["data"], list)
+           and (not r["data"] or "timeslots" in r["data"][0]),
+           f"len={len(r['data']) if r['ok'] else r}")
+
+    print()
+    if failures:
+        print(f"FAILED: {len(failures)} smoke test(s):")
+        for f in failures:
+            print(f"  - {f}")
+        sys.exit(1)
+    print("all smoke tests passed.")

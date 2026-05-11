@@ -14,20 +14,22 @@ Course data is queried live; quota data is bundled and stamped with a `data_asof
 
 ## Setup — code execution
 
-All vvzapi calls happen via the **code execution tool**, importing the bundled Python modules. Do NOT use `web_fetch` for vvzapi — its URL allowlist blocks dynamic URLs. The first time you call a helper, prepend the import boilerplate:
+All vvzapi calls happen via the **code execution tool**, importing the bundled Python modules. Do NOT use `web_fetch` for vvzapi — its URL allowlist blocks dynamic URLs. The first time you call a helper in a session, prepend this boilerplate (which finds the skill folder regardless of where the sandbox mounts it):
 
 ```python
-import sys, os
-sys.path.insert(0, "/mnt/skills/eth-vvz/scripts")  # claude.ai sandbox path
-# (when the actual mount path differs, look in /mnt/skills/* for the eth-vvz folder)
+import glob, sys
+_skill = next(iter(glob.glob("/mnt/skills/**/eth-vvz/scripts", recursive=True)
+                   + glob.glob("/mnt/user-data/**/eth-vvz/scripts", recursive=True)
+                   + glob.glob("/mnt/**/eth-vvz/scripts", recursive=True)), None)
+if _skill is None:
+    raise RuntimeError("eth-vvz skill folder not found under /mnt/")
+sys.path.insert(0, _skill)
 from vvz_client import (
     search, list_units, get_unit, get_unit_sections, get_unit_lecturers,
-    get_section, list_sections, get_lecturer, list_semesters,
+    get_section, list_sections, get_lecturer, list_semesters, get_course,
 )
 from requirements_lookup import get_requirements, list_programmes
 ```
-
-If `/mnt/skills/eth-vvz/` doesn't exist, locate the skill folder by listing `/mnt/skills/` first.
 
 ## Tools (Python helpers)
 
@@ -37,10 +39,11 @@ Every helper returns either `{"ok": True, "data": ...}` or `{"ok": False, "error
 
 | Function | Use when |
 |---|---|
-| `list_units(semkez=..., level=..., title=..., lecturer_surname=..., type=..., language=..., periodicity=..., ects_min=..., ects_max=..., content_search=..., section=..., number=..., limit=100)` | Structured filtering. **Prefer this** when the question maps to clear filters. Returns a list of unit IDs — call `get_unit(id)` for details. |
+| `list_units(semkez=..., level=..., title=..., lecturer_surname=..., type=..., language=..., ects_min=..., ects_max=..., content_search=..., section=..., number=..., limit=100)` | Structured filtering. **Prefer this** when the question maps to clear filters. Returns a list of unit IDs — call `get_unit(id)` for details. **Do not pass `department=`** — it's buggy upstream for several IDs (5/INFK, 8/MATH, 18/ITET …); use course-number prefixes (see `references/programme_shorthand.md`) to filter by department instead. |
 | `search(q, limit=20, order_by="year")` | Free-text discovery (`objective:cryptography`, `lecturer:Krause`, `offered:"Wissenschaft im Kontext"`). See `references/query_syntax.md` for the operator grammar — and what NOT to use (`NOT`, `-`, `*` don't work). |
-| `get_unit(unit_id)` | Full details for one course. |
-| `get_unit_sections(unit_id)` | Returns the section IDs the course is "Offered in". Follow up with `get_section(section_id)` for category names — this answers credit-eligibility questions. |
+| `get_unit(unit_id)` | Catalogue metadata for one course (title, ECTS, language, exam_type, abstract, etc.). Field names worth knowing: `levels` (list, e.g. `["BSC", "MSC"]`), `departments` (list of dept IDs), `course_frequency` (int), `occurence` (string, often null), `additional`/`additional_english` (prerequisites prose), `max_places`, `general_restrictions`, `signup_start`/`signup_end`/`waitlist_end`. **Does NOT include meeting times** — call `get_course(unit_id)` for those. |
+| `get_course(unit_id)` | Per-instance scheduling: returns a list with `timeslots`, `hours`, `type` (V/U/P/S), `semkez`. Use this whenever the user asks about meeting times / Uhrzeiten / when the course meets. |
+| `get_unit_sections(unit_id)` | Returns a bare **list of integer section IDs** the course is "Offered in". Follow up with `get_section(section_id)` for the human-readable category names — this answers credit-eligibility questions. |
 | `get_section(section_id)` | One section's data: name (DE/EN), parent/children, semkez. |
 | `list_sections(semkez=..., name_search=..., parent_id=..., level=...)` | Find programmes/categories by name. Returns IDs. |
 | `get_lecturer(lecturer_id)` / `get_unit_lecturers(unit_id)` | Lecturer details. |
@@ -67,15 +70,15 @@ These live in `references/`. Use the Read tool only when the user's question act
 
 | User asks about | Approach |
 |---|---|
-| **A specific course** ("tell me about 252-0463-00L") | `list_units(number="252-0463-00L", semkez=<current>)` → if not in current semester, search across semesters with `search(q="number:252-0463-00L", limit=200)` → `get_unit(id)` → present (single-course-deep-dive shape). |
-| **Filtered course list** ("BSc INFK Wahlfächer in HS25, 4–8 ECTS, English") | Resolve programme via `get_requirements`, locate the Wahlfächer section via `list_sections(semkez="2025W", name_search="Wahlfächer", parent_id=<programme section>)`, then `list_units(semkez="2025W", section=<id>, language="English", ects_min=4, ects_max=8)`. |
+| **A specific course** ("tell me about 252-0463-00L") | `list_units(number="252-0463-00L", semkez=<current>)` → if not in current semester, search across semesters with `search(q='number:"252-0463-00L"', limit=200)` (the course code MUST be quoted because of the dashes) → `get_unit(id)` → present (single-course-deep-dive shape). |
+| **Filtered course list** ("BSc INFK Wahlfächer in HS25, 4–8 ECTS, English") | Locate the Wahlfächer section: `list_sections(semkez="2025W", name_search="Wahlfächer")` → pick the BSc-Informatik one (filter by parent or by inspecting `name`). Then `list_units(semkez="2025W", section=<id>, language="English", ects_min=4, ects_max=8)`. To filter by department (when no section is implied), use **course-number prefix** client-side (e.g. keep only `number.startswith("252-")`) — do NOT use the `department=` filter. |
 | **Interest-based** ("I'm interested in cryptography") | Multi-pass: `search(q="objective:cryptography", limit=20)` then `search(q="title:cryptography", limit=20)` then dedupe by course number, rank by recency, pick 3–5. Present as detailed list. |
 | **Bioinformatics-style overview** | Same as interest, but group results by department (use course-number prefix) and present a flat ranked list — no "foundational/specialized" curriculum narrative; that's plan-generation, out of scope. |
 | **GESS / Wahlfächer / Pflichtwahlfach** | Use `programme_shorthand.md` to map the term, then `search(q='offered:"Wissenschaft im Kontext"')` or `list_sections(name_search="Wissenschaft im Kontext")` + `list_units(section=...)`. Always say which programme's quota you're using. |
 | **Capacity** ("how many places?") | `get_unit(id)` → `max_places` (if null: catalogue does not publish a cap — say so). Also surface `general_restrictions` text and `signup_start`/`signup_end`. **Never claim historical enrolment numbers** — ETH does not publish them. |
-| **How long has this course existed** | `search(q="number:<num>", limit=200)` → collect distinct `semkez` → present range. **Always disclose the 2009–2019 vvzapi data gap** — do NOT report the course was discontinued during that window. |
+| **How long has this course existed** | `search(q='number:"<num>"', limit=200)` (quote the dashed course code) → collect distinct `semkez` → present range. **Always disclose the 2009–2019 vvzapi data gap** — do NOT report the course was discontinued during that window. |
 | **Semester / FS-HS** | Resolve user input to `semkez` per `references/semester_codes.md`. For "this/next semester", use today's date + the resolution rules. |
-| **Times of day / Uhrzeiten** | `get_unit(id)` returns instances with time slots. Present verbatim. **No conflict detection between courses** — that's plan-validation, out of scope. |
+| **Times of day / Uhrzeiten** | `get_course(unit_id)` returns the per-instance `timeslots` (weekday + start/end time). Present verbatim. `get_unit` does NOT carry meeting times. **No conflict detection between courses** — that's plan-validation, out of scope. |
 | **Schriftlich/mündlich** | `get_unit(id)` → `exam_type` and `exam_mode`. Surface verbatim. |
 | **Prerequisites** | `get_unit(id)` → `additional` / `additional_english` / `comment`. Quote verbatim with the hedge from `refusals.md`. |
 | **Credit eligibility** ("does X count for my BSc CS Wahlfächer?") | (1) `get_unit_sections(unit_id)` → list of section IDs. (2) For each, `get_section(id)` → name + level. (3) `get_requirements("BSc Informatik")` → check whether any of those section names appears under the programme's categories. (4) Present the matching categories with the `data_asof` stamp and the Reglement URL. v1 limit: **one course at a time**. If user asks about 5+ courses, say plan-validation is out of scope for v1. |

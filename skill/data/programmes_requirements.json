@@ -1,6 +1,6 @@
 {
   "data_asof": {
-    "generated_at": "2026-05-11T19:36:48+00:00",
+    "generated_at": "2026-05-11T19:51:12+00:00",
     "source_file": "eth_program_requirements.md",
     "programme_count": 34,
     "partial_count": 1
@@ -23,37 +23,44 @@
         {
           "label": "a Fächer des Basisjahres (1: Basisprüfung 20 KP; 2: weitere 36 KP)",
           "kp": 56,
-          "kp_raw": "56"
+          "kp_raw": "56",
+          "is_subcategory": false
         },
         {
           "label": "b Fächer des 2. Studienjahres (Prüfungsblöcke 24 KP + Entwurf/weitere 32 KP)",
           "kp": 56,
-          "kp_raw": "56"
+          "kp_raw": "56",
+          "is_subcategory": false
         },
         {
           "label": "c Fächer des 3. Studienjahres (Prüfungsblöcke 20 KP + Entwurf/weitere 28 KP)",
           "kp": 48,
-          "kp_raw": "48"
+          "kp_raw": "48",
+          "is_subcategory": false
         },
         {
           "label": "d Wissenschaft im Kontext (SiP)",
           "kp": 4,
-          "kp_raw": "4"
+          "kp_raw": "4",
+          "is_subcategory": false
         },
         {
           "label": "e Seminarwochen",
           "kp": 4,
-          "kp_raw": "4"
+          "kp_raw": "4",
+          "is_subcategory": false
         },
         {
           "label": "f Vertiefungsarbeit",
           "kp": 4,
-          "kp_raw": "4"
+          "kp_raw": "4",
+          "is_subcategory": false
         },
         {
           "label": "g Praktikum (≥ 6 months, in Projektierung/Bau)",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -82,22 +89,26 @@
         {
           "label": "a. Obligatorische Fächer des Basisjahres",
           "kp": 52,
-          "kp_raw": "52"
+          "kp_raw": "52",
+          "is_subcategory": false
         },
         {
           "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums (1) Prüfungsblöcke 113 KP; (2) Entwurf/Projektarbeit 3 KP",
           "kp": 116,
-          "kp_raw": "116"
+          "kp_raw": "116",
+          "is_subcategory": false
         },
         {
           "label": "c. Wissenschaft im Kontext (SiP)",
           "kp": 4,
-          "kp_raw": "4"
+          "kp_raw": "4",
+          "is_subcategory": false
         },
         {
           "label": "d. Bachelor-Arbeit",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -125,32 +136,38 @@
         {
           "label": "a. Obligatorische Fächer des Basisjahres (1: Basisprüfung 52 KP; 2: Einzelfächer 9 KP)",
           "kp": 61,
-          "kp_raw": "61"
+          "kp_raw": "61",
+          "is_subcategory": false
         },
         {
           "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums",
           "kp": 74,
-          "kp_raw": "74"
+          "kp_raw": "74",
+          "is_subcategory": false
         },
         {
           "label": "c. Fachspezifische Wahlfächer",
           "kp": 27,
-          "kp_raw": "27"
+          "kp_raw": "27",
+          "is_subcategory": false
         },
         {
           "label": "d. Wahlfächer",
           "kp": 4,
-          "kp_raw": "4"
+          "kp_raw": "4",
+          "is_subcategory": false
         },
         {
           "label": "e. Wissenschaft im Kontext",
           "kp": 4,
-          "kp_raw": "4"
+          "kp_raw": "4",
+          "is_subcategory": false
         },
         {
           "label": "f. Bachelor-Arbeit",
           "kp": 10,
-          "kp_raw": "10"
+          "kp_raw": "10",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -200,22 +217,30 @@
         {
           "label": "a. Fächer des Basisjahres (1: BP 45 KP; 2: Praktika 14 KP)",
           "kp": 59,
-          "kp_raw": "59"
+          "kp_raw": "59",
+          "is_subcategory": false
         },
         {
           "label": "b. Fächer des 2. Studienjahres (mind. 49 KP, max. 57 KP)",
           "kp": 57,
-          "kp_raw": "57"
+          "kp_raw": "57",
+          "is_subcategory": false
         },
         {
           "label": "c. Kurse des 3. Studienjahres (Konzeptkurse ≥ 18 KP + Blockkurse ≥ 30 KP)",
           "kp": 60,
-          "kp_raw": "60"
+          "kp_raw": "60",
+          "is_subcategory": false,
+          "min_kp_constraints": [
+            18,
+            30
+          ]
         },
         {
           "label": "d. Wissenschaft im Kontext",
           "kp": 4,
-          "kp_raw": "4"
+          "kp_raw": "4",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -241,22 +266,26 @@
         {
           "label": "a. Obligatorische Fächer (1: BP 44 KP; 2: übriges Bachelor-Studium 64 KP)",
           "kp": 108,
-          "kp_raw": "108"
+          "kp_raw": "108",
+          "is_subcategory": false
         },
         {
           "label": "b. Wahlfächer",
           "kp": 16,
-          "kp_raw": "16"
+          "kp_raw": "16",
+          "is_subcategory": false
         },
         {
           "label": "c. Praktika",
           "kp": 50,
-          "kp_raw": "50"
+          "kp_raw": "50",
+          "is_subcategory": false
         },
         {
           "label": "d. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -282,17 +311,20 @@
         {
           "label": "a. Obligatorische Fächer (BP 44 KP + übriges BSc 81 KP)",
           "kp": 125,
-          "kp_raw": "125"
+          "kp_raw": "125",
+          "is_subcategory": false
         },
         {
           "label": "b. Praktika und Fallstudien",
           "kp": 49,
-          "kp_raw": "49"
+          "kp_raw": "49",
+          "is_subcategory": false
         },
         {
           "label": "c. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -318,32 +350,38 @@
         {
           "label": "a. Kernfächer Basisprüfung",
           "kp": 46,
-          "kp_raw": "46"
+          "kp_raw": "46",
+          "is_subcategory": false
         },
         {
           "label": "b. Kernfächer übriges Bachelor-Studium",
           "kp": 70,
-          "kp_raw": "70"
+          "kp_raw": "70",
+          "is_subcategory": false
         },
         {
           "label": "c. Wahlfächer",
           "kp": 12,
-          "kp_raw": "12"
+          "kp_raw": "12",
+          "is_subcategory": false
         },
         {
           "label": "d. Praktika",
           "kp": 28,
-          "kp_raw": "28"
+          "kp_raw": "28",
+          "is_subcategory": false
         },
         {
           "label": "e. Blockkurse",
           "kp": 18,
-          "kp_raw": "18"
+          "kp_raw": "18",
+          "is_subcategory": false
         },
         {
           "label": "f. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -369,27 +407,32 @@
         {
           "label": "a. Obligatorische Fächer des Basisjahres",
           "kp": 60,
-          "kp_raw": "60"
+          "kp_raw": "60",
+          "is_subcategory": false
         },
         {
           "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums und Wahlfächer",
           "kp": 67,
-          "kp_raw": "67"
+          "kp_raw": "67",
+          "is_subcategory": false
         },
         {
           "label": "c. Praktika, Semesterarbeiten, Proseminare, Exkursionen",
           "kp": 32,
-          "kp_raw": "32"
+          "kp_raw": "32",
+          "is_subcategory": false
         },
         {
           "label": "d. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         },
         {
           "label": "e. Bachelor-Arbeit",
           "kp": 15,
-          "kp_raw": "15"
+          "kp_raw": "15",
+          "is_subcategory": false
         }
       ],
       "caveats": [],
@@ -413,27 +456,32 @@
         {
           "label": "a. Fächer des Basisjahres (BP 49 KP + weitere 14 KP)",
           "kp": 63,
-          "kp_raw": "63"
+          "kp_raw": "63",
+          "is_subcategory": false
         },
         {
           "label": "b. Fächer des 2. Studienjahres (Kernfächer + Komp. 42 KP + Praktika 17 KP)",
           "kp": 59,
-          "kp_raw": "59"
+          "kp_raw": "59",
+          "is_subcategory": false
         },
         {
           "label": "c. Fächer des 3. Studienjahres (Kernfächer 30–35 KP + Komp. + Praktika 18 KP)",
           "kp": 53,
-          "kp_raw": "53"
+          "kp_raw": "53",
+          "is_subcategory": false
         },
         {
           "label": "d. Wahlfächer",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "e. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -460,37 +508,44 @@
         {
           "label": "a. Grundlagenfächer I (BP 35 + weitere 6)",
           "kp": 41,
-          "kp_raw": "41"
+          "kp_raw": "41",
+          "is_subcategory": false
         },
         {
           "label": "b. Grundlagenfächer II",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         },
         {
           "label": "c. Allgemeine erdwissenschaftliche Fächer (mind. 35 + Komp.)",
           "kp": 42,
-          "kp_raw": "42"
+          "kp_raw": "42",
+          "is_subcategory": false
         },
         {
           "label": "d. Integrierte Erdsysteme",
           "kp": 15,
-          "kp_raw": "15"
+          "kp_raw": "15",
+          "is_subcategory": false
         },
         {
           "label": "e. Vertiefung — Geologie und Geophysik **OR** Klima und Wasser",
           "kp": 34,
-          "kp_raw": "34"
+          "kp_raw": "34",
+          "is_subcategory": false
         },
         {
           "label": "f. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         },
         {
           "label": "g. Bachelor-Arbeit",
           "kp": 12,
-          "kp_raw": "12"
+          "kp_raw": "12",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -517,27 +572,32 @@
         {
           "label": "a. Kernfächer (1: BP 40 KP; 2: übriges BSc 77 KP)",
           "kp": 117,
-          "kp_raw": "117"
+          "kp_raw": "117",
+          "is_subcategory": false
         },
         {
           "label": "b. Wahlfächer",
           "kp": 7,
-          "kp_raw": "7"
+          "kp_raw": "7",
+          "is_subcategory": false
         },
         {
           "label": "c. Sprachen (erste Fremdsprache 6 KP + zweite Fremdsprache 6 KP)",
           "kp": 12,
-          "kp_raw": "12"
+          "kp_raw": "12",
+          "is_subcategory": false
         },
         {
           "label": "d. Praxismodule",
           "kp": 18,
-          "kp_raw": "18"
+          "kp_raw": "18",
+          "is_subcategory": false
         },
         {
           "label": "e. Bachelor-Kolloquium (2 KP) + Bachelor-Arbeit (10 KP)",
           "kp": 12,
-          "kp_raw": "12"
+          "kp_raw": "12",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -564,27 +624,32 @@
         {
           "label": "a. Kernfächer des Basisjahres (BP 54 + Praktika 4)",
           "kp": 58,
-          "kp_raw": "58"
+          "kp_raw": "58",
+          "is_subcategory": false
         },
         {
           "label": "b. Kernfächer übriges Bachelor-Studium (Prüfungsblöcke 42 + Einzelfächer/Praktika 12)",
           "kp": 54,
-          "kp_raw": "54"
+          "kp_raw": "54",
+          "is_subcategory": false
         },
         {
           "label": "c. Schwerpunktfächer (3. Studienjahr) — Bewegungswiss. & Sport ≥ 8 · Medizintechnik ≥ 8 · Molek. Gesundheitswiss. ≥ 6 · Neurowissenschaften ≥ 6",
           "kp": 48,
-          "kp_raw": "48"
+          "kp_raw": "48",
+          "is_subcategory": false
         },
         {
           "label": "d. Wahlfächer (davon max. 6 KP aus Sportpraxis)",
           "kp": 14,
-          "kp_raw": "14"
+          "kp_raw": "14",
+          "is_subcategory": false
         },
         {
           "label": "e. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -610,17 +675,20 @@
         {
           "label": "a. Fächer des Basisjahres (BP 52 + weitere 11)",
           "kp": 63,
-          "kp_raw": "63"
+          "kp_raw": "63",
+          "is_subcategory": false
         },
         {
           "label": "b. Organsysteme und klinische Fächer sowie Naturwissenschaften des 2./3. Studienjahres",
           "kp": 79,
-          "kp_raw": "79"
+          "kp_raw": "79",
+          "is_subcategory": false
         },
         {
           "label": "c. Medizinwissenschaftliche Fächer 2./3. Studienjahr (Kernfächer 30–38 + Komp.)",
           "kp": 38,
-          "kp_raw": "38"
+          "kp_raw": "38",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -648,42 +716,50 @@
         {
           "label": "a. Grundlagenfächer I (BP 49 + weitere 6)",
           "kp": 55,
-          "kp_raw": "55"
+          "kp_raw": "55",
+          "is_subcategory": false
         },
         {
           "label": "b. Grundlagenfächer II",
           "kp": 42,
-          "kp_raw": "42"
+          "kp_raw": "42",
+          "is_subcategory": false
         },
         {
           "label": "c. Lebensmittelwissenschaftliche Fachgrundlagen",
           "kp": 19,
-          "kp_raw": "19"
+          "kp_raw": "19",
+          "is_subcategory": false
         },
         {
           "label": "d. Lebensmittelwissenschaftliche Laborpraktika",
           "kp": 11,
-          "kp_raw": "11"
+          "kp_raw": "11",
+          "is_subcategory": false
         },
         {
           "label": "e. Lebensmittelwissenschaftliche Fächer",
           "kp": 32,
-          "kp_raw": "32"
+          "kp_raw": "32",
+          "is_subcategory": false
         },
         {
           "label": "f. Wahlfächer",
           "kp": 3,
-          "kp_raw": "3"
+          "kp_raw": "3",
+          "is_subcategory": false
         },
         {
           "label": "g. Exkursionen",
           "kp": 3,
-          "kp_raw": "3"
+          "kp_raw": "3",
+          "is_subcategory": false
         },
         {
           "label": "h. Bachelor-Arbeit",
           "kp": 15,
-          "kp_raw": "15"
+          "kp_raw": "15",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -709,37 +785,54 @@
         {
           "label": "a. Fächer des Basisjahres",
           "kp": 56,
-          "kp_raw": "56"
+          "kp_raw": "56",
+          "is_subcategory": false
+        },
+        {
+          "label": "b. **Hauptfächer (Major)** — total",
+          "kp": 96,
+          "kp_raw": "96",
+          "is_subcategory": false
         },
         {
           "label": "1. Grundlagenfächer und Kernfächer (mind. 84 KP): Grundlagenfächer ≥ 45 KP · Kernfächer ≥ 32 KP (aus ≥ 2 Vertiefungsrichtungen)",
           "kp": null,
-          "kp_raw": "—"
+          "kp_raw": "—",
+          "is_subcategory": true,
+          "min_kp_constraints": [
+            45,
+            32
+          ]
         },
         {
           "label": "2. Wahlfächer (filler)",
           "kp": null,
-          "kp_raw": "—"
+          "kp_raw": "—",
+          "is_subcategory": true
         },
         {
           "label": "c. Seminar",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "d. Ergänzung",
           "kp": 5,
-          "kp_raw": "5"
+          "kp_raw": "5",
+          "is_subcategory": false
         },
         {
           "label": "e. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         },
         {
           "label": "f. Bachelor-Arbeit",
           "kp": 10,
-          "kp_raw": "10"
+          "kp_raw": "10",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -767,42 +860,50 @@
         {
           "label": "a. Fächer des Basisjahres (BP 53 + obl. Praktika 3)",
           "kp": 56,
-          "kp_raw": "56"
+          "kp_raw": "56",
+          "is_subcategory": false
         },
         {
           "label": "b. Grundlagenfächer des 2. Studienjahres (Prüfungsblöcke 52 + obl. Praktikum 1)",
           "kp": 53,
-          "kp_raw": "53"
+          "kp_raw": "53",
+          "is_subcategory": false
         },
         {
           "label": "c. Weitere Grundlagenfächer",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "d. Kernfächer des 3. Studienjahres (≥ 3 Kernfächer)",
           "kp": 18,
-          "kp_raw": "18"
+          "kp_raw": "18",
+          "is_subcategory": false
         },
         {
           "label": "e. Wahlfächer",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         },
         {
           "label": "f. Praktika, Projekte, Seminare",
           "kp": 15,
-          "kp_raw": "15"
+          "kp_raw": "15",
+          "is_subcategory": false
         },
         {
           "label": "g. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         },
         {
           "label": "h. Bachelor-Projekt",
           "kp": 12,
-          "kp_raw": "12"
+          "kp_raw": "12",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -830,37 +931,52 @@
         {
           "label": "a. Obligatorische Fächer des Basisjahres",
           "kp": 51,
-          "kp_raw": "51"
+          "kp_raw": "51",
+          "is_subcategory": false
         },
         {
           "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums",
           "kp": 51,
-          "kp_raw": "51"
+          "kp_raw": "51",
+          "is_subcategory": false
         },
         {
           "label": "c. Ergänzungsfächer",
           "kp": 11,
-          "kp_raw": "11"
+          "kp_raw": "11",
+          "is_subcategory": false
         },
         {
           "label": "d. Wahlpflichtfächer",
           "kp": 11,
-          "kp_raw": "11"
+          "kp_raw": "11",
+          "is_subcategory": false
         },
         {
           "label": "e. Kernfächer und Wahlfächer (Kern ≥ 21 KP, davon ≥ 7 KP reine Math + ≥ 7 KP angewandte Math)",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false,
+          "min_kp_constraints": [
+            21,
+            7,
+            7
+          ]
         },
         {
           "label": "f. Seminare und Semesterarbeiten (Seminar ≥ 2 KP)",
           "kp": 4,
-          "kp_raw": "4"
+          "kp_raw": "4",
+          "is_subcategory": false,
+          "min_kp_constraints": [
+            2
+          ]
         },
         {
           "label": "g. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -891,42 +1007,68 @@
         {
           "label": "a. Fächer des Basisjahres",
           "kp": 56,
-          "kp_raw": "56"
+          "kp_raw": "56",
+          "is_subcategory": false
+        },
+        {
+          "label": "b. **Hauptgebiete** total:",
+          "kp": 98,
+          "kp_raw": "98",
+          "is_subcategory": false
         },
         {
           "label": "1. Grundlagenfächer ≥ 56 KP",
           "kp": null,
-          "kp_raw": "—"
+          "kp_raw": "—",
+          "is_subcategory": true,
+          "min_kp_constraints": [
+            56
+          ]
         },
         {
           "label": "2. Kernfächer ≥ 20 KP (3 Lerneinheiten)",
           "kp": null,
-          "kp_raw": "—"
+          "kp_raw": "—",
+          "is_subcategory": true,
+          "min_kp_constraints": [
+            20
+          ]
         },
         {
           "label": "3. Vertiefungsgebiete ≥ 6 KP (2 Lerneinheiten)",
           "kp": null,
-          "kp_raw": "—"
+          "kp_raw": "—",
+          "is_subcategory": true,
+          "min_kp_constraints": [
+            6
+          ]
         },
         {
           "label": "4. Wahlfächer ≥ 6 KP (2 Lerneinheiten)",
           "kp": null,
-          "kp_raw": "—"
+          "kp_raw": "—",
+          "is_subcategory": true,
+          "min_kp_constraints": [
+            6
+          ]
         },
         {
           "label": "c. Fallstudien (≥ 2 Lerneinheiten)",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         },
         {
           "label": "d. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         },
         {
           "label": "e. Bachelor-Arbeit",
           "kp": 14,
-          "kp_raw": "14"
+          "kp_raw": "14",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -952,32 +1094,38 @@
         {
           "label": "a. Grundlagenfächer Teil 1 (Basisjahr: BP 45 + weitere 15)",
           "kp": 60,
-          "kp_raw": "60"
+          "kp_raw": "60",
+          "is_subcategory": false
         },
         {
           "label": "b. Grundlagenfächer Teil 2",
           "kp": 77,
-          "kp_raw": "77"
+          "kp_raw": "77",
+          "is_subcategory": false
         },
         {
           "label": "c. Grundlagenfächer Teil 3 (mind. 18, max. 21) + Kompensationsfach (0)",
           "kp": 21,
-          "kp_raw": "21"
+          "kp_raw": "21",
+          "is_subcategory": false
         },
         {
           "label": "d. Industriepraktikum oder Forschungsprojekt",
           "kp": 10,
-          "kp_raw": "10"
+          "kp_raw": "10",
+          "is_subcategory": false
         },
         {
           "label": "e. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "f. Bachelor-Arbeit",
           "kp": 10,
-          "kp_raw": "10"
+          "kp_raw": "10",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -1004,42 +1152,50 @@
         {
           "label": "a. Obligatorische Fächer des Basisjahres (BP 54 + Einzel 5)",
           "kp": 59,
-          "kp_raw": "59"
+          "kp_raw": "59",
+          "is_subcategory": false
         },
         {
           "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums",
           "kp": 52,
-          "kp_raw": "52"
+          "kp_raw": "52",
+          "is_subcategory": false
         },
         {
           "label": "c. Projekt",
           "kp": 3,
-          "kp_raw": "3"
+          "kp_raw": "3",
+          "is_subcategory": false
         },
         {
           "label": "d. Wahlfächer",
           "kp": 24,
-          "kp_raw": "24"
+          "kp_raw": "24",
+          "is_subcategory": false
         },
         {
           "label": "e. **Fokus und Bachelor-Arbeit** — two variants:",
           "kp": 36,
-          "kp_raw": "36"
+          "kp_raw": "36",
+          "is_subcategory": false
         },
         {
           "label": "1. Fokus-Vertiefung (20 KP) + grosse Bachelor-Arbeit (16 KP); **or**",
           "kp": null,
-          "kp_raw": "—"
+          "kp_raw": "—",
+          "is_subcategory": true
         },
         {
           "label": "2. Fokus-Projekt (20 KP) + Vorlesungen (8 KP) + kleine Bachelor-Arbeit (8 KP)",
           "kp": null,
-          "kp_raw": "—"
+          "kp_raw": "—",
+          "is_subcategory": true
         },
         {
           "label": "f. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -1066,32 +1222,38 @@
         {
           "label": "a. Obligatorische Fächer des Basisjahres",
           "kp": 58,
-          "kp_raw": "58"
+          "kp_raw": "58",
+          "is_subcategory": false
         },
         {
           "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums",
           "kp": 59,
-          "kp_raw": "59"
+          "kp_raw": "59",
+          "is_subcategory": false
         },
         {
           "label": "c. Kernfächer (1. Experimentalphysikalische ≥ 8; 2. Theoretische ≥ ?)",
           "kp": 24,
-          "kp_raw": "24"
+          "kp_raw": "24",
+          "is_subcategory": false
         },
         {
           "label": "d. Wahlfächer",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "e. Praktika, Proseminare, Semesterarbeiten (Praktika 17 + Proseminare/SA/Forschungspraktika ≥ 8)",
           "kp": 25,
-          "kp_raw": "25"
+          "kp_raw": "25",
+          "is_subcategory": false
         },
         {
           "label": "f. Wissenschaft im Kontext",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -1117,42 +1279,50 @@
         {
           "label": "a. Grundlagenfächer Basisjahr (BP 51 + weitere 6)",
           "kp": 57,
-          "kp_raw": "57"
+          "kp_raw": "57",
+          "is_subcategory": false
         },
         {
           "label": "b. Grundlagenfächer 2. Studienjahr",
           "kp": 27,
-          "kp_raw": "27"
+          "kp_raw": "27",
+          "is_subcategory": false
         },
         {
           "label": "c. Agrarwissenschaftliche Lehrgebiete (Grundlagen 6 + Fachbereiche 49: Agrarökonomie 15 / Pflanzenwiss. 19 / Tierwiss. 15)",
           "kp": 55,
-          "kp_raw": "55"
+          "kp_raw": "55",
+          "is_subcategory": false
         },
         {
           "label": "d. Methoden",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "e. Wahlfächer",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         },
         {
           "label": "f. Exkursionen",
           "kp": 3,
-          "kp_raw": "3"
+          "kp_raw": "3",
+          "is_subcategory": false
         },
         {
           "label": "g. Agrar-Praktikum",
           "kp": 10,
-          "kp_raw": "10"
+          "kp_raw": "10",
+          "is_subcategory": false
         },
         {
           "label": "h. Bachelor-Arbeit",
           "kp": 14,
-          "kp_raw": "14"
+          "kp_raw": "14",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -1178,32 +1348,38 @@
         {
           "label": "a. Grundlagenfächer I",
           "kp": 56,
-          "kp_raw": "56"
+          "kp_raw": "56",
+          "is_subcategory": false
         },
         {
           "label": "b. Grundlagenfächer II",
           "kp": 46,
-          "kp_raw": "46"
+          "kp_raw": "46",
+          "is_subcategory": false
         },
         {
           "label": "c. Systemvertiefung (Kernfächer ≥ 12 + Praktikum 7 + Seminare 6)",
           "kp": 25,
-          "kp_raw": "25"
+          "kp_raw": "25",
+          "is_subcategory": false
         },
         {
           "label": "d. **Sozial- und Geisteswissenschaften** (Pflichtteil ≥ 12 + Komp. + Wahl)",
           "kp": 19,
-          "kp_raw": "19"
+          "kp_raw": "19",
+          "is_subcategory": false
         },
         {
           "label": "e. Naturwissenschaftliche und technische Wahlfächer",
           "kp": 23,
-          "kp_raw": "23"
+          "kp_raw": "23",
+          "is_subcategory": false
         },
         {
           "label": "f. Bachelor-Arbeit",
           "kp": 10,
-          "kp_raw": "10"
+          "kp_raw": "10",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -1229,37 +1405,47 @@
         {
           "label": "a. Kernfächer — 4 Bereiche, each ≥ 4 KP: Geschichte/Theorie · Denkmalpflege/Bauforschung · Landschaftsarchitektur/Städtebau · Technologie in der Architektur",
           "kp": 24,
-          "kp_raw": "24"
+          "kp_raw": "24",
+          "is_subcategory": false,
+          "min_kp_constraints": [
+            4
+          ]
         },
         {
           "label": "b. Entwurf",
           "kp": 42,
-          "kp_raw": "42"
+          "kp_raw": "42",
+          "is_subcategory": false
         },
         {
           "label": "c. Vertiefungsarbeiten",
           "kp": 12,
-          "kp_raw": "12"
+          "kp_raw": "12",
+          "is_subcategory": false
         },
         {
           "label": "d. Wahlfächer",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "e. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "f. Seminarwochen",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "g. Master-Arbeit",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         }
       ],
       "caveats": [],
@@ -1283,52 +1469,69 @@
         {
           "label": "a. Kernfächer und Wahlfächer (Kern ≥ 14 KP)",
           "kp": 38,
-          "kp_raw": "38"
+          "kp_raw": "38",
+          "is_subcategory": false,
+          "min_kp_constraints": [
+            14
+          ]
         },
         {
           "label": "b. Seminare und Semesterarbeiten (Seminar ≥ 4)",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "c. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "d. Master-Arbeit",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         },
         {
           "label": "a. Kernfächer und Wahlfächer (Kern ≥ 14 KP, of which ≥ 14 KP from \"angewandte\" Kern/Wahl)",
           "kp": 26,
-          "kp_raw": "26"
+          "kp_raw": "26",
+          "is_subcategory": false,
+          "min_kp_constraints": [
+            14,
+            14
+          ]
         },
         {
           "label": "b. Anwendungsgebiet",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "c. Seminare und Semesterarbeiten",
           "kp": 12,
-          "kp_raw": "12"
+          "kp_raw": "12",
+          "is_subcategory": false
         },
         {
           "label": "d. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "e. Master-Arbeit",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         },
         {
           "label": "… (further filler categories — see Art. 32 of the Reglement)",
           "kp": null,
-          "kp_raw": "—"
+          "kp_raw": "—",
+          "is_subcategory": true
         }
       ],
       "caveats": [
@@ -1360,27 +1563,32 @@
         {
           "label": "a. Kernfächer (Theoretische ≥ 10 + Experimentelle ≥ 10)",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         },
         {
           "label": "b. Wahlfächer (Physikalische und mathematische ≥ 10; Allgemeine)",
           "kp": 20,
-          "kp_raw": "20"
+          "kp_raw": "20",
+          "is_subcategory": false
         },
         {
           "label": "c. Proseminare und Semesterarbeiten",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "d. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "e. Master-Arbeit",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -1406,27 +1614,35 @@
         {
           "label": "a. Kernfächer + Kompensationsfächer (Anorg. ≥ 5 + Org. ≥ 5 + Phys. Chem. ≥ 5)",
           "kp": 18,
-          "kp_raw": "18"
+          "kp_raw": "18",
+          "is_subcategory": false
         },
         {
           "label": "b. Wahlfächer",
           "kp": 19,
-          "kp_raw": "19"
+          "kp_raw": "19",
+          "is_subcategory": false
         },
         {
           "label": "c. Projektarbeiten, Industriepraktikum und Praktikum (1 Projektarbeit ≥ 13 KP + 13 KP entweder zweite Projektarbeit oder Industriepraktikum)",
           "kp": 26,
-          "kp_raw": "26"
+          "kp_raw": "26",
+          "is_subcategory": false,
+          "min_kp_constraints": [
+            13
+          ]
         },
         {
           "label": "d. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "e. Master-Arbeit",
           "kp": 25,
-          "kp_raw": "25"
+          "kp_raw": "25",
+          "is_subcategory": false
         }
       ],
       "caveats": [],
@@ -1450,32 +1666,41 @@
         {
           "label": "a. Kernfächer (Biochem. Eng. ≥ 4 + Products/Materials ≥ 4 + Process Design ≥ 4 + Catalysis/Separation ≥ 4)",
           "kp": 24,
-          "kp_raw": "24"
+          "kp_raw": "24",
+          "is_subcategory": false
         },
         {
           "label": "b. Wahlfächer (≥ 13 KP must be from D-CHAB course catalogue)",
           "kp": 23,
-          "kp_raw": "23"
+          "kp_raw": "23",
+          "is_subcategory": false,
+          "min_kp_constraints": [
+            13
+          ]
         },
         {
           "label": "c. Fallstudie",
           "kp": 3,
-          "kp_raw": "3"
+          "kp_raw": "3",
+          "is_subcategory": false
         },
         {
           "label": "d. Projektarbeit + Industriepraktikum (frei wählbar)",
           "kp": 13,
-          "kp_raw": "13"
+          "kp_raw": "13",
+          "is_subcategory": false
         },
         {
           "label": "e. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "f. Master-Arbeit",
           "kp": 25,
-          "kp_raw": "25"
+          "kp_raw": "25",
+          "is_subcategory": false
         }
       ],
       "caveats": [],
@@ -1499,27 +1724,32 @@
         {
           "label": "a. Fächer der gewählten Vertiefung",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         },
         {
           "label": "b. Allgemeine Fächer",
           "kp": 10,
-          "kp_raw": "10"
+          "kp_raw": "10",
+          "is_subcategory": false
         },
         {
           "label": "c. Proseminare, Praktika, Projektarbeiten, Semesterarbeiten",
           "kp": 20,
-          "kp_raw": "20"
+          "kp_raw": "20",
+          "is_subcategory": false
         },
         {
           "label": "d. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "e. Master-Arbeit",
           "kp": 20,
-          "kp_raw": "20"
+          "kp_raw": "20",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -1545,42 +1775,50 @@
         {
           "label": "a. Vertiefung (Major) — Kernfächer 16 + Wahlfächer",
           "kp": 26,
-          "kp_raw": "26"
+          "kp_raw": "26",
+          "is_subcategory": false
         },
         {
           "label": "b. Seminar",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "c. Praktische Arbeit (max. 10 KP anrechenbar)",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "d. Ergänzung (Minor)",
           "kp": 18,
-          "kp_raw": "18"
+          "kp_raw": "18",
+          "is_subcategory": false
         },
         {
           "label": "e. Vertiefungsübergreifende Fächer",
           "kp": 16,
-          "kp_raw": "16"
+          "kp_raw": "16",
+          "is_subcategory": false
         },
         {
           "label": "f. Freie Wahlfächer",
           "kp": 0,
-          "kp_raw": "0"
+          "kp_raw": "0",
+          "is_subcategory": false
         },
         {
           "label": "g. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "h. Master-Arbeit",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -1611,32 +1849,38 @@
         {
           "label": "a. Kernfächer (Datenanalyse ≥ 16 + Datenmgmt/-verarbeitung ≥ 16)",
           "kp": 32,
-          "kp_raw": "32"
+          "kp_raw": "32",
+          "is_subcategory": false
         },
         {
           "label": "b. Wahlfächer (fachspezifisch ≥ 20 + interdisziplinär ≥ 8 + weitere)",
           "kp": 28,
-          "kp_raw": "28"
+          "kp_raw": "28",
+          "is_subcategory": false
         },
         {
           "label": "c. Data Science Projektkurs",
           "kp": 10,
-          "kp_raw": "10"
+          "kp_raw": "10",
+          "is_subcategory": false
         },
         {
           "label": "d. Seminar",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "e. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "f. Master-Arbeit",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -1665,22 +1909,26 @@
         {
           "label": "a. Grundlagenfächer (Einführungsveranstaltungen 44 + Semesterbericht 3 + Seminararbeit 5)",
           "kp": 52,
-          "kp_raw": "52"
+          "kp_raw": "52",
+          "is_subcategory": false
         },
         {
           "label": "b. Vertiefungsfächer (Lektüreessays) — ≥ 3 essays",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         },
         {
           "label": "c. Forschungskolloquien",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "d. Master-Arbeit",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         }
       ],
       "caveats": [
@@ -1707,32 +1955,38 @@
         {
           "label": "a. Kernfächer",
           "kp": 36,
-          "kp_raw": "36"
+          "kp_raw": "36",
+          "is_subcategory": false
         },
         {
           "label": "b. Multidisziplinfächer",
           "kp": 6,
-          "kp_raw": "6"
+          "kp_raw": "6",
+          "is_subcategory": false
         },
         {
           "label": "c. Wissenschaft im Kontext",
           "kp": 2,
-          "kp_raw": "2"
+          "kp_raw": "2",
+          "is_subcategory": false
         },
         {
           "label": "d. Studienarbeit",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "e. Industrie-Praxis",
           "kp": 8,
-          "kp_raw": "8"
+          "kp_raw": "8",
+          "is_subcategory": false
         },
         {
           "label": "f. Master-Arbeit",
           "kp": 30,
-          "kp_raw": "30"
+          "kp_raw": "30",
+          "is_subcategory": false
         }
       ],
       "caveats": [

@@ -89,13 +89,31 @@ def get_requirements(key_or_alias: str) -> dict:
             "data_asof": d["requirements"]["data_asof"],
         }
 
-    # 2. Substring fallback — find aliases containing the needle.
-    candidates: list[tuple[str, str]] = []  # (canonical, matched_alias)
+    # 2. Word-boundary fallback. Substring-against-substring is unsafe for
+    # short tokens ("ma" matches everything containing the letters m+a).
+    # Instead, tokenize both sides and require the needle's tokens to all
+    # appear as whole tokens in the alias (or vice versa).
+    needle_tokens = set(re.findall(r"[a-z0-9]+", needle))
+    if not needle_tokens:
+        return {"ok": False, "error": "not_found",
+                "detail": f"empty / non-alphanumeric query: '{key_or_alias}'"}
+
+    # Skip the fallback entirely for very short single-token queries — too
+    # many false positives, ask the user to be specific.
+    if len(needle_tokens) == 1 and len(next(iter(needle_tokens))) <= 3:
+        return {
+            "ok": False,
+            "error": "too_short",
+            "detail": f"'{key_or_alias}' is too short to disambiguate; please use a longer name (e.g. 'BSc Informatik' instead of 'INF')",
+            "hint": "call list_programmes() for the full set of canonical keys",
+        }
+
+    candidates: list[tuple[str, str]] = []
     for alias_norm, canonical in alias_index.items():
-        if needle in alias_norm or alias_norm in needle:
+        alias_tokens = set(re.findall(r"[a-z0-9]+", alias_norm))
+        if needle_tokens.issubset(alias_tokens) or alias_tokens.issubset(needle_tokens):
             candidates.append((canonical, alias_norm))
 
-    # Dedupe by canonical, keep first matched alias.
     seen = {}
     for canonical, alias_norm in candidates:
         seen.setdefault(canonical, alias_norm)

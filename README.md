@@ -23,7 +23,7 @@ See `skill/SKILL.md` for the complete behavior contract.
 ## Data sources
 
 - **vvzapi** (`https://vvzapi.ch`) — unofficial scrape of the ETH Course Catalogue. Used live for every course / lecturer / section / "Offered in" lookup. Credit: [markbeep/vvzapi](https://github.com/markbeep/vvzapi).
-- **Bundled programme requirements** — ECTS quotas per programme/category, extracted from the official ETH Studienreglemente (Rechtssammlung der ETH Zürich) and independently verified row-by-row against the source PDFs. 34 programmes covered as of the latest build; see `skill/data/programmes_requirements.json` and the per-record `reglement.url`.
+- **Bundled programme requirements** — ECTS quotas per programme/category, parsed from a structured reference document compiled from the official ETH Studienreglemente (Rechtssammlung der ETH Zürich). Numeric quotas were independently re-extracted and cross-checked against the source PDFs (188/189 numeric rows match exactly). 34 programmes covered as of the latest build; subcategory rows that carry their KP info inside the label (e.g. "≥ 45 KP") are flagged `is_subcategory: true` with a best-effort `min_kp_constraints` list. See `skill/data/programmes_requirements.json` and the per-record `reglement.url`.
 
 ## Installation (claude.ai)
 

@@ -19,7 +19,7 @@ in `/v1/unit/list`** — see `query_syntax.md`.
 | MTEC | D-MTEC | `363-` | `Management` |
 | MATH | D-MATH | `401-` | `Mathematik` |
 | PHYS, Physik | D-PHYS | `402-` | `Physik` |
-| BIOL, Biologie | D-BIOL | `551-`, `701-`, `551-`*shared with USYS* | `Biologie` |
+| BIOL, Biologie | D-BIOL | `551-` | `Biologie` |
 | ERDW, Earth Sciences | D-ERDW | `651-` | `Erdwissenschaften` |
 | GESS *(as department)* | D-GESS | `851-`, `860-`, `862-` | `Geistes-` |
 | ITET, EE | D-ITET | `227-`, `228-` | `Elektrotechnik` |
@@ -27,7 +27,7 @@ in `/v1/unit/list`** — see `query_syntax.md`.
 | CHAB, Chemie, Pharma | D-CHAB | `529-`, `535-` | `Chemie`, `Pharmazeutische` |
 | BSSE | D-BSSE | `636-` | `Biosystems` |
 | HEST, HST | D-HEST | `376-` | `Gesundheitswissenschaften`, `Bewegungswissenschaften`, `Humanmedizin` |
-| USYS, Umweltnaturwiss. | D-USYS | `701-`, `751-`, `121-` | `Umweltnaturwissenschaften`, `Agrarwissenschaften` |
+| USYS, Umweltnaturwiss. | D-USYS | `701-`, `751-`, `121-`, `851-`*(shared)* | `Umweltnaturwissenschaften`, `Agrarwissenschaften` |
 
 > Course-number prefixes are the **most reliable** dept filter. Pull the candidate
 > list with `list_units(semkez=...)` or `search(q="...")`, then filter

@@ -28,23 +28,36 @@ The year is **the year the semester begins**. So:
 
 ## Resolution rules ("this", "next", "last")
 
-Resolve relative semester names using **today's date** and the ETH academic calendar:
+ETH academic calendar (approximate, Y = current calendar year):
 
-| Month today | Currently active semester | "Next semester" | "Last semester" |
+| Window | What's happening |
+|---|---|
+| ~mid-Sep – ~22 Dec, year Y | **HS Y** lectures |
+| ~mid-Jan – ~mid-Feb, year Y+1 | **HS Y** session exams (winter session) |
+| ~mid-Feb – ~end-May, year Y+1 | **FS (Y+1)** lectures |
+| ~mid-Jul – mid-Aug, year Y+1 | **FS (Y+1)** session exams (summer session) |
+| Jun, Sep gaps | between semesters |
+
+**Resolution table** (`Y` = today's calendar year):
+
+| Month today | "This semester" (currently active) | "Next semester" | "Last semester" |
 |---|---|---|---|
-| Jan | HS of previous year (still in exams) | FS of current year | FS of previous year |
-| Feb (1–14) | exam period of HS prev. year | FS current year | FS prev. year |
-| Feb 15 – May | FS current year | HS current year | HS prev. year |
-| Jun – mid-Sep | between semesters / summer | HS current year | FS current year |
-| Mid-Sep – Dec | HS current year | FS next year | FS current year |
+| Jan – mid Feb | `(Y-1)W` (HS exam session) | `YS` | `(Y-1)S` |
+| ~mid-Feb – May | `YS` | `YW` | `(Y-1)W` |
+| Jun – mid-Sep | `YS` (just finished or in summer exam) | `YW` | `(Y-1)W` |
+| Mid-Sep – Dec | `YW` | `(Y+1)S` | `YS` |
+
+Treat boundary days (~Feb 15, ~Sep 15) liberally: if the user is asking about
+"the upcoming semester" in a transition window, prefer the semester whose
+lectures start next.
 
 Worked examples (today = **2026-05-11**, FS26 ongoing):
 
 - "this semester" → `2026S`
 - "next semester" → `2026W`
 - "last semester" → `2025W`
-- "next year" (HS) → `2026W`
-- "in two semesters" → `2026W` (FS → next HS)
+- "next year" (autumn) → `2026W`
+- "in two semesters" → `2026W` (FS → HS)
 - "in one year" → `2027S`
 
 ## Listing available semesters in vvzapi

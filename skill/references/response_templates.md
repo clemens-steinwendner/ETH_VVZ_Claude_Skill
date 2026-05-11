@@ -149,7 +149,10 @@ User: *"What's the ECTS for 252-0463-00L?"*  (with helper returning `vvzapi_unre
 ```
 I couldn't reach the course catalogue API just now (vvzapi unreachable). Please
 try again in a moment, or look it up directly:
-https://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitscode=252-0463-00L&lang=en
+https://www.vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebotPre.view?lang=en
+
+(The detail page needs an internal `lerneinheitId` we get from the API; the
+search page above lets you type the course number to find it.)
 ```
 
 ---
