@@ -10,9 +10,13 @@ A Claude skill that lets students chat about ETH Zurich courses and study plans,
 
 ## Data sources
 
-- **vvzapi** (`https://vvzapi.ch`) — unofficial scrape of the ETH Course Catalogue. Used for: learning units, course instances, lecturers, ratings, and the "Offered in" section/category mapping.
-- **Studienreglement (user-supplied)** — ECTS quotas per category, prerequisites, and Leistungskontrolle rules are *not* in vvzapi and must come from the official programme regulation.
+- **vvzapi** (`https://vvzapi.ch`) — unofficial scrape of the ETH Course Catalogue. Used live for: learning units, course instances, lecturers, ratings, and the "Offered in" section/category mapping.
+- **Bundled programme requirements** — ECTS quotas per programme/category are not exposed by vvzapi. We extract them from the official ETH Studienreglement PDFs (Rechtssammlung) and ship them as a structured `programmes_requirements.json` inside the skill. Independently verified row-by-row against the PDFs (see `eth_program_requirements_verified.md`).
+
+## Audience
+
+Paid claude.ai users (Pro / Max / Team / Enterprise) at ETH Zurich. Free claude.ai does not support custom Agent Skills. The skill is distributed as a `.zip` via GitHub releases and installed manually under Settings → Features.
 
 ## Status
 
-Early prototype. Not affiliated with ETH Zurich. Verify anything binding (registration, grading, credit transfer) against the official catalogue at `vvz.ethz.ch`.
+Early prototype. Not affiliated with ETH Zurich, and not affiliated with the upstream vvzapi project — we credit it and aim to be a polite client. Verify anything binding (registration, grading, credit transfer) against the official catalogue at `vvz.ethz.ch`.
