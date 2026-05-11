@@ -278,6 +278,35 @@ if __name__ == "__main__":
            and (not r["data"] or "timeslots" in r["data"][0]),
            f"len={len(r['data']) if r['ok'] else r}")
 
+    # list_sections: level is INT depth, not degree enum
+    r = list_sections(semkez="2025W", level=0, limit=3)
+    _check("list_sections(level=0 int) returns bare int IDs",
+           r["ok"] and isinstance(r["data"], list)
+           and all(isinstance(x, int) for x in r["data"]),
+           f"sample={r['data'][:3] if r['ok'] else r}")
+
+    # Confirm `level=BSC` (string) is correctly rejected — guards the doc claim
+    r_bad = list_sections(semkez="2025W", level="BSC", limit=3)
+    _check("list_sections(level='BSC') is rejected (proves docs)",
+           not r_bad["ok"] and r_bad["error"] in {"invalid_query", "http_error"},
+           f"error={r_bad.get('error')}")
+
+    # Section name fallback: name often null, name_english populated
+    if r["ok"] and r["data"]:
+        sec = get_section(r["data"][0])
+        if sec["ok"]:
+            d = sec["data"]
+            _check("get_section returns at least one of name/name_english",
+                   d.get("name") or d.get("name_english"),
+                   f"name={d.get('name')!r} name_english={d.get('name_english')!r}")
+
+    # `credits` is the ECTS field on a unit
+    r = get_unit(46593)
+    if r["ok"]:
+        _check("get_unit() exposes `credits` (float ECTS), not `ects`",
+               isinstance(r["data"].get("credits"), (int, float)),
+               f"credits={r['data'].get('credits')}")
+
     print()
     if failures:
         print(f"FAILED: {len(failures)} smoke test(s):")

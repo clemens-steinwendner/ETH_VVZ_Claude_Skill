@@ -31,23 +31,42 @@ from vvz_client import (
 from requirements_lookup import get_requirements, list_programmes
 ```
 
+## Common gotchas (read these before your first tool call)
+
+The vvzapi return shapes and field names trip people up. Save round-trips by knowing these upfront:
+
+- **All `list_*` and `get_*_sections` / `get_*_lecturers` endpoints return bare lists of integer IDs.** They do NOT return objects — you must follow up with `get_unit(id)` / `get_section(id)` / `get_lecturer(id)` for details. Only `lecturer/list` returns full objects (different from every other list endpoint).
+- **The ECTS field is `credits` (float)** on a unit — there is no field called `ects`.
+- **Unit fields are plural lists**: `levels` (e.g. `["BSC","MSC"]`), `departments` (list of dept IDs). NOT `level`/`department`.
+- **Section names are often null in one language and populated in the other.** Always read both `name` (DE) and `name_english` and fall back: `s["name_english"] or s["name"] or "(unnamed)"`.
+- **`list_sections(level=N)` is INT section depth** (0 = top-level programme), not the degree enum. Passing `"BSC"` returns HTTP 422.
+- **`list_units(level=...)` IS the degree enum** (`"BSC"`/`"MSC"`/`"DR"`). Same param name, different meaning across endpoints.
+- **`get_unit` does NOT include lecturers or meeting times.** Call `get_unit_lecturers` and `get_course` separately.
+- **`get_lecturer(id)` may return `None` body** for some IDs — vvzapi data gap. Surface the ID + "(name unavailable)" rather than failing.
+- **Course numbers contain dashes** (`401-3010-57L`). When using v2 search, **quote** them: `search('number:"401-3010-57L"')`.
+- **`semkez:`/`-`/`NOT`/`*` do NOT work in `/v2/search`** — they're silently dropped or parsed as text. Use the typed `list_units` for semester filtering.
+- **The latest semester in vvzapi may lag.** Future semesters appear weeks/months after publication on vvz.ethz.ch. **Always call `list_semesters()` first** when the user asks about a specific upcoming semester; if it's not there, use the most recent available as a proxy and disclose the substitution.
+- **`department=` filter on `list_units` is buggy** for several IDs (5/INFK, 8/MATH, 18/ITET …) — never use it. Filter by course-number prefix client-side; see `references/programme_shorthand.md`.
+- **Helpers always return `{"ok": True/False, ...}`** — check `r["ok"]` before reading `r["data"]`.
+
 ## Tools (Python helpers)
 
 Every helper returns either `{"ok": True, "data": ...}` or `{"ok": False, "error": "<code>", "detail": "..."}`. Surface the error code to the user, never invent data.
 
 ### `vvz_client` — vvzapi wrapper
 
-| Function | Use when |
-|---|---|
-| `list_units(semkez=..., level=..., title=..., lecturer_surname=..., type=..., language=..., ects_min=..., ects_max=..., content_search=..., section=..., number=..., limit=100)` | Structured filtering. **Prefer this** when the question maps to clear filters. Returns a list of unit IDs — call `get_unit(id)` for details. **Do not pass `department=`** — it's buggy upstream for several IDs (5/INFK, 8/MATH, 18/ITET …); use course-number prefixes (see `references/programme_shorthand.md`) to filter by department instead. |
-| `search(q, limit=20, order_by="year")` | Free-text discovery (`objective:cryptography`, `lecturer:Krause`, `offered:"Wissenschaft im Kontext"`). See `references/query_syntax.md` for the operator grammar — and what NOT to use (`NOT`, `-`, `*` don't work). |
-| `get_unit(unit_id)` | Catalogue metadata for one course (title, ECTS, language, exam_type, abstract, etc.). Field names worth knowing: `levels` (list, e.g. `["BSC", "MSC"]`), `departments` (list of dept IDs), `course_frequency` (int), `occurence` (string, often null), `additional`/`additional_english` (prerequisites prose), `max_places`, `general_restrictions`, `signup_start`/`signup_end`/`waitlist_end`. **Does NOT include meeting times** — call `get_course(unit_id)` for those. |
-| `get_course(unit_id)` | Per-instance scheduling: returns a list with `timeslots`, `hours`, `type` (V/U/P/S), `semkez`. Use this whenever the user asks about meeting times / Uhrzeiten / when the course meets. |
-| `get_unit_sections(unit_id)` | Returns a bare **list of integer section IDs** the course is "Offered in". Follow up with `get_section(section_id)` for the human-readable category names — this answers credit-eligibility questions. |
-| `get_section(section_id)` | One section's data: name (DE/EN), parent/children, semkez. |
-| `list_sections(semkez=..., name_search=..., parent_id=..., level=...)` | Find programmes/categories by name. Returns IDs. |
-| `get_lecturer(lecturer_id)` / `get_unit_lecturers(unit_id)` | Lecturer details. |
-| `list_semesters()` | All semesters with vvzapi data; use to resolve "this/next semester". |
+| Function | Returns | Use when |
+|---|---|---|
+| `list_units(semkez=..., level=..., title=..., lecturer_surname=..., type=..., language=..., ects_min=..., ects_max=..., content_search=..., section=..., number=..., limit=100)` | bare list of unit IDs (int) | Structured filtering. **Prefer this** when filters are clear. `level` here is the degree enum: `"BSC"` / `"MSC"` / `"DR"`. **Do not pass `department=`** — buggy upstream for several IDs (5/INFK, 8/MATH, 18/ITET …); filter by course-number prefix client-side instead (see `references/programme_shorthand.md`). |
+| `search(q, limit=20, order_by="year")` | object with `total` + `results` dict | Free-text discovery (`objective:cryptography`, `lecturer:Krause`, `offered:"Wissenschaft im Kontext"`). See `references/query_syntax.md` for grammar, what NOT to use (`NOT`, `-`, `*` don't work), and that course numbers must be **quoted** (`number:"401-3010-57L"`). |
+| `get_unit(unit_id)` | one LearningUnit dict | Catalogue metadata for one course. **Key field names** (some surprises): `credits` (float, this is the ECTS value — NOT a field called `ects`), `language` (string), `title` / `title_english`, `levels` (list e.g. `["BSC","MSC"]`), `departments` (list of dept IDs), `exam_type`, `exam_mode` (often null), `objective` / `objective_english` (often null), `abstract` / `abstract_english`, `additional` / `additional_english` (prerequisites prose), `course_frequency` (int), `occurence` (string, often null), `max_places`, `general_restrictions`, `signup_start` / `signup_end` / `waitlist_end`. **Does NOT include lecturers or meeting times** — call `get_unit_lecturers` and `get_course` separately. |
+| `get_course(unit_id)` | bare list of course-instance dicts | Per-instance scheduling: each item has `timeslots`, `hours`, `type` (V/U/P/S), `semkez`. Use this for meeting times / Uhrzeiten. |
+| `get_unit_sections(unit_id)` | bare list of int section IDs | The sections the course is "Offered in". Follow up with `get_section(section_id)` for the human-readable category names — answers credit-eligibility questions. |
+| `get_section(section_id)` | one Section dict | Fields: `id`, `semkez`, `name` (DE — **may be null**), `name_english` (often the only populated name), `level` (int — **section depth**, 0 = top-level programme, NOT degree level), `parent_id`, `children` (list of `{id, level}`), `learning_units` (list of `{id, type}` where `type` is `O`/`W`/`W+`/`E-`). Always read both `name` AND `name_english` — fall back to whichever is non-null. |
+| `list_sections(semkez=..., name_search=..., parent_id=..., level=...)` | bare list of int section IDs | Find programmes/categories. **`level` here is `int` section depth (0 = top-level)**, NOT a degree enum. Passing `"BSC"` returns HTTP 422. To find a top-level programme, use `level=0`. To get all categories under a programme, use `parent_id=<programme section id>`. |
+| `get_unit_lecturers(unit_id, limit=100)` | bare list of int lecturer IDs | The lecturers teaching this course. |
+| `get_lecturer(lecturer_id)` | one Lecturer dict OR null body | **Best-effort** — vvzapi returns `None` for some IDs (data gap). When null, surface the lecturer ID without a name rather than failing. Fields when present: `id`, `surname`, `name` (= first name), `title`, `department`. |
+| `list_semesters()` | bare list of semkez strings | All semesters vvzapi has data for. **Always check before answering future-semester questions** — if the user asks about HS26 and the latest available is HS25, say so and use HS25 as a proxy with the disclaimer. |
 
 ### `requirements_lookup` — bundled programme quotas
 

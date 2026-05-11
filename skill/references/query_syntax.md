@@ -94,6 +94,31 @@ returns HTTP 400), but the *semantics* are wrong for several of them.
 
 ---
 
+## Section endpoints: `GET /api/v1/section/list` and `/api/v1/section/{id}/get`
+
+Sections are the "Offered in" hierarchy — programmes (top-level) and the
+categories beneath them (Kernfächer, Wahlfächer, etc.).
+
+| Param on `section/list` | Type | Notes |
+|---|---|---|
+| `semkez` | string | `2025W` etc. **Always set** to avoid history bleed-through. |
+| `level` | int | **Section depth**, NOT a degree enum. `0` = top-level programme; `1`, `2`, `3` = nested categories. Passing `"BSC"` returns HTTP 422. |
+| `parent_id` | int | Direct parent only (1 level deep). |
+| `name_search` | string | Substring match against `name` and `name_english`. |
+| `comment_search` | string | Substring match against `comment`. |
+| `sort_lex` | bool | `true` = alphabetical; default `false` = sort by section ID. |
+
+`section/list` returns a **bare list of integer IDs** — call
+`section/{id}/get` for each one to read names, parents, children.
+
+A `Section` response has: `id`, `parent_id`, `semkez`, `name` (DE — **may be null**),
+`name_english` (often the only populated label — **always fall back**), `level`
+(int depth), `children` (list of `{id, level}`), `learning_units`
+(list of `{id, type}` where `type` ∈ `O`/`W`/`W+`/`E-`).
+
+Section IDs are per-semester — the same programme has a different ID each
+semester. To follow a programme across years, search by name.
+
 ## Free-text: `GET /api/v2/search`
 
 Best for "I'm interested in <topic>" → keyword discovery across multiple fields.
