@@ -3,6 +3,8 @@ eth_program_requirements.md
 eth_program_requirements_verified.md
 probe-skill/
 probe-skill.zip
+/scripts/
+skill/scripts/__pycache__/
 
 .DS_Store
 .idea/

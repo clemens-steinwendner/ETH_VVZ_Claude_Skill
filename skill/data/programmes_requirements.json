@@ -1,0 +1,1748 @@
+{
+  "data_asof": {
+    "generated_at": "2026-05-11T19:36:48+00:00",
+    "source_file": "eth_program_requirements.md",
+    "programme_count": 34,
+    "partial_count": 1
+  },
+  "programmes": {
+    "bsc_architektur": {
+      "name_full": "BSc Architektur (D-ARCH)",
+      "name_de": "BSc Architektur",
+      "name_en": "BSc Architektur",
+      "department": "D-ARCH",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0100.14",
+        "year": "2025",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0100.14.pdf",
+        "raw": "- **Reglement:** Studienreglement 2025 vom 17.12.2024 (RSETHZ 323.1.0100.14) —"
+      },
+      "categories": [
+        {
+          "label": "a Fächer des Basisjahres (1: Basisprüfung 20 KP; 2: weitere 36 KP)",
+          "kp": 56,
+          "kp_raw": "56"
+        },
+        {
+          "label": "b Fächer des 2. Studienjahres (Prüfungsblöcke 24 KP + Entwurf/weitere 32 KP)",
+          "kp": 56,
+          "kp_raw": "56"
+        },
+        {
+          "label": "c Fächer des 3. Studienjahres (Prüfungsblöcke 20 KP + Entwurf/weitere 28 KP)",
+          "kp": 48,
+          "kp_raw": "48"
+        },
+        {
+          "label": "d Wissenschaft im Kontext (SiP)",
+          "kp": 4,
+          "kp_raw": "4"
+        },
+        {
+          "label": "e Seminarwochen",
+          "kp": 4,
+          "kp_raw": "4"
+        },
+        {
+          "label": "f Vertiefungsarbeit",
+          "kp": 4,
+          "kp_raw": "4"
+        },
+        {
+          "label": "g Praktikum (≥ 6 months, in Projektierung/Bau)",
+          "kp": 8,
+          "kp_raw": "8"
+        }
+      ],
+      "caveats": [
+        "**Basisprüfung:** Pilotprojekt \"aufgeteilte Basisprüfung\" — BPb 1 and BPb 2.",
+        "**Praktikum:** ≥ 6 months in Projektierungs-/Ausführungsbüros, Bauhauptgewerbe",
+        "**Mobility:** max 20 Mobilitäts-KP.",
+        "**Master admission:** auflagenfreie Zulassung zum MSc Architektur ETH only"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_bauingenieurwissenschaften": {
+      "name_full": "BSc Bauingenieurwissenschaften (D-BAUG)",
+      "name_de": "BSc Bauingenieurwissenschaften",
+      "name_en": "BSc Bauingenieurwissenschaften",
+      "department": "D-BAUG",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0200.15",
+        "year": "2022",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0200.15.pdf",
+        "raw": "- **Reglement:** Studienreglement 2022 vom 7.4.2022 (RSETHZ 323.1.0200.15) —"
+      },
+      "categories": [
+        {
+          "label": "a. Obligatorische Fächer des Basisjahres",
+          "kp": 52,
+          "kp_raw": "52"
+        },
+        {
+          "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums (1) Prüfungsblöcke 113 KP; (2) Entwurf/Projektarbeit 3 KP",
+          "kp": 116,
+          "kp_raw": "116"
+        },
+        {
+          "label": "c. Wissenschaft im Kontext (SiP)",
+          "kp": 4,
+          "kp_raw": "4"
+        },
+        {
+          "label": "d. Bachelor-Arbeit",
+          "kp": 8,
+          "kp_raw": "8"
+        }
+      ],
+      "caveats": [
+        "**Basisprüfung:** aufgeteilt (BPb 1 + BPb 2), same regime as Architektur.",
+        "**Master admission:** auflagenfrei into MSc Bauingenieurwissenschaften ETH.",
+        "**Wegleitung:** [BSc+MSc Bauingenieurwissenschaften D-BAUG Wegleitung (DE)](https://ethz.ch/content/dam/ethz/special-interest/baug/department/studium/bauing/dokumente/reglemente/BSc+MSc_Bauingenieurwissenschaften_D-BAUG_Wegleitung_DE.pdf)."
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_umweltingenieurwissenschaften": {
+      "name_full": "BSc Umweltingenieurwissenschaften (D-BAUG)",
+      "name_de": "BSc Umweltingenieurwissenschaften",
+      "name_en": "BSc Umweltingenieurwissenschaften",
+      "department": "D-BAUG",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0200.22",
+        "year": "2022",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0200.22.pdf",
+        "raw": "- **Reglement:** Studienreglement 2022 vom 7.4.2022 (RSETHZ 323.1.0200.22) —"
+      },
+      "categories": [
+        {
+          "label": "a. Obligatorische Fächer des Basisjahres (1: Basisprüfung 52 KP; 2: Einzelfächer 9 KP)",
+          "kp": 61,
+          "kp_raw": "61"
+        },
+        {
+          "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums",
+          "kp": 74,
+          "kp_raw": "74"
+        },
+        {
+          "label": "c. Fachspezifische Wahlfächer",
+          "kp": 27,
+          "kp_raw": "27"
+        },
+        {
+          "label": "d. Wahlfächer",
+          "kp": 4,
+          "kp_raw": "4"
+        },
+        {
+          "label": "e. Wissenschaft im Kontext",
+          "kp": 4,
+          "kp_raw": "4"
+        },
+        {
+          "label": "f. Bachelor-Arbeit",
+          "kp": 10,
+          "kp_raw": "10"
+        }
+      ],
+      "caveats": [
+        "**Legacy comparison (Reglement 2010, RSETHZ 323.1.0200.21, Art. 35):** Grundlagenfächer 59 KP (BP 56 + 3) · Obl. Fächer 91 KP · Wahlmodul 10 KP · Wahlfächer 6 KP · SiP 4 KP · BSc-Arbeit 10 KP. Students who started before HS 2022 may still finish under the 2010 regulation."
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_raumbezogene_ingenieurwissenschaften_geomatic_engineering": {
+      "name_full": "BSc Raumbezogene Ingenieurwissenschaften / Geomatic Engineering (D-BAUG)",
+      "name_de": "BSc Raumbezogene Ingenieurwissenschaften",
+      "name_en": "Geomatic Engineering",
+      "department": "D-BAUG",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": null,
+        "year": null,
+        "stand": null,
+        "url": null,
+        "raw": "- **Reglement:** A 2022 Reglement exists (parallel to the BAUG civil/env reform). The exact RSETHZ number (323.1.0200.31 or similar) could not be confirmed via WebSearch in this run."
+      },
+      "categories": [],
+      "caveats": [
+        "`TBD — verify on` [D-BAUG Geomatic Engineering documents page](https://baug.ethz.ch/en/studies/geomatic-engineering.html).",
+        "**Structure (per Wegleitung):** First-year Basisjahr is *shared* in large part"
+      ],
+      "parse_warnings": [
+        "no category table found",
+        "no Reglement PDF URL found"
+      ],
+      "partial": true
+    },
+    "bsc_biologie": {
+      "name_full": "BSc Biologie (D-BIOL)",
+      "name_de": "BSc Biologie",
+      "name_en": "BSc Biologie",
+      "department": "D-BIOL",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.1001.15",
+        "year": "2020",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.1001.15.pdf",
+        "raw": "- **Reglement:** Studienreglement 2020 vom 18.05.2020 (RSETHZ 323.1.1001.15) —"
+      },
+      "categories": [
+        {
+          "label": "a. Fächer des Basisjahres (1: BP 45 KP; 2: Praktika 14 KP)",
+          "kp": 59,
+          "kp_raw": "59"
+        },
+        {
+          "label": "b. Fächer des 2. Studienjahres (mind. 49 KP, max. 57 KP)",
+          "kp": 57,
+          "kp_raw": "57"
+        },
+        {
+          "label": "c. Kurse des 3. Studienjahres (Konzeptkurse ≥ 18 KP + Blockkurse ≥ 30 KP)",
+          "kp": 60,
+          "kp_raw": "60"
+        },
+        {
+          "label": "d. Wissenschaft im Kontext",
+          "kp": 4,
+          "kp_raw": "4"
+        }
+      ],
+      "caveats": [
+        "**Special compensation rule:** in Cat. b students must earn ≥ 49 of 57 KP;"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_chemie": {
+      "name_full": "BSc Chemie (D-CHAB)",
+      "name_de": "BSc Chemie",
+      "name_en": "BSc Chemie",
+      "department": "D-CHAB",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0400.11",
+        "year": "2018",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0400.11.pdf",
+        "raw": "- **Reglement:** Studienreglement 2018 vom 27.03.2018 (RSETHZ 323.1.0400.11) —"
+      },
+      "categories": [
+        {
+          "label": "a. Obligatorische Fächer (1: BP 44 KP; 2: übriges Bachelor-Studium 64 KP)",
+          "kp": 108,
+          "kp_raw": "108"
+        },
+        {
+          "label": "b. Wahlfächer",
+          "kp": 16,
+          "kp_raw": "16"
+        },
+        {
+          "label": "c. Praktika",
+          "kp": 50,
+          "kp_raw": "50"
+        },
+        {
+          "label": "d. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        }
+      ],
+      "caveats": [
+        "**Cross-over to Chemieingenieur:** KP from a BSc Chemieingenieurwissenschaften"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_chemieingenieurwissenschaften": {
+      "name_full": "BSc Chemieingenieurwissenschaften (D-CHAB)",
+      "name_de": "BSc Chemieingenieurwissenschaften",
+      "name_en": "BSc Chemieingenieurwissenschaften",
+      "department": "D-CHAB",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0400.22",
+        "year": "2018",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0400.22.pdf",
+        "raw": "- **Reglement:** Studienreglement 2018 (RSETHZ 323.1.0400.22) —"
+      },
+      "categories": [
+        {
+          "label": "a. Obligatorische Fächer (BP 44 KP + übriges BSc 81 KP)",
+          "kp": 125,
+          "kp_raw": "125"
+        },
+        {
+          "label": "b. Praktika und Fallstudien",
+          "kp": 49,
+          "kp_raw": "49"
+        },
+        {
+          "label": "c. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        }
+      ],
+      "caveats": [
+        "Transfer rules from BSc Chemie are mirrored (Art. 33 Abs. 2)."
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_biochemie_biology": {
+      "name_full": "BSc Biochemie / Biology (D-CHAB)",
+      "name_de": "BSc Biochemie",
+      "name_en": "Biology",
+      "department": "D-CHAB",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0400.40",
+        "year": "2020",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0400.40.pdf",
+        "raw": "- **Reglement:** Studienreglement 2020 (RSETHZ 323.1.0400.40) —"
+      },
+      "categories": [
+        {
+          "label": "a. Kernfächer Basisprüfung",
+          "kp": 46,
+          "kp_raw": "46"
+        },
+        {
+          "label": "b. Kernfächer übriges Bachelor-Studium",
+          "kp": 70,
+          "kp_raw": "70"
+        },
+        {
+          "label": "c. Wahlfächer",
+          "kp": 12,
+          "kp_raw": "12"
+        },
+        {
+          "label": "d. Praktika",
+          "kp": 28,
+          "kp_raw": "28"
+        },
+        {
+          "label": "e. Blockkurse",
+          "kp": 18,
+          "kp_raw": "18"
+        },
+        {
+          "label": "f. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        }
+      ],
+      "caveats": [
+        "**Special rule (Art. 32 Abs. 2):** the 18 KP from Blockkurse are also the"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_interdisziplinaere_naturwissenschaften": {
+      "name_full": "BSc Interdisziplinäre Naturwissenschaften (D-CHAB)",
+      "name_de": "BSc Interdisziplinäre Naturwissenschaften",
+      "name_en": "BSc Interdisziplinäre Naturwissenschaften",
+      "department": "D-CHAB",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0400.32",
+        "year": "2018",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0400.32.pdf",
+        "raw": "- **Reglement:** Studienreglement 2018 (RSETHZ 323.1.0400.32) —"
+      },
+      "categories": [
+        {
+          "label": "a. Obligatorische Fächer des Basisjahres",
+          "kp": 60,
+          "kp_raw": "60"
+        },
+        {
+          "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums und Wahlfächer",
+          "kp": 67,
+          "kp_raw": "67"
+        },
+        {
+          "label": "c. Praktika, Semesterarbeiten, Proseminare, Exkursionen",
+          "kp": 32,
+          "kp_raw": "32"
+        },
+        {
+          "label": "d. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        },
+        {
+          "label": "e. Bachelor-Arbeit",
+          "kp": 15,
+          "kp_raw": "15"
+        }
+      ],
+      "caveats": [],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_pharmazeutische_wissenschaften": {
+      "name_full": "BSc Pharmazeutische Wissenschaften (D-CHAB)",
+      "name_de": "BSc Pharmazeutische Wissenschaften",
+      "name_en": "BSc Pharmazeutische Wissenschaften",
+      "department": "D-CHAB",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0500.12",
+        "year": "2020",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0500.12.pdf",
+        "raw": "- **Reglement:** Studienreglement 2020 vom 30.06.2020 (RSETHZ 323.1.0500.12) —"
+      },
+      "categories": [
+        {
+          "label": "a. Fächer des Basisjahres (BP 49 KP + weitere 14 KP)",
+          "kp": 63,
+          "kp_raw": "63"
+        },
+        {
+          "label": "b. Fächer des 2. Studienjahres (Kernfächer + Komp. 42 KP + Praktika 17 KP)",
+          "kp": 59,
+          "kp_raw": "59"
+        },
+        {
+          "label": "c. Fächer des 3. Studienjahres (Kernfächer 30–35 KP + Komp. + Praktika 18 KP)",
+          "kp": 53,
+          "kp_raw": "53"
+        },
+        {
+          "label": "d. Wahlfächer",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "e. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        }
+      ],
+      "caveats": [
+        "**Special rules (Art. 35 Abs. 2–4):** every Kernfach must be taken; in year 2,",
+        "**Special profession:** subject to Bundesgesetze für universitäre Medizinal-"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_erd_und_klimawissenschaften_earth_and_climate_sciences": {
+      "name_full": "BSc Erd- und Klimawissenschaften / Earth and Climate Sciences (D-EAPS, ex D-ERDW)",
+      "name_de": "BSc Erd- und Klimawissenschaften",
+      "name_en": "Earth and Climate Sciences",
+      "department": "D-EAPS, ex D-ERDW",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.1003.34",
+        "year": "2016",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.1003.34.pdf",
+        "raw": "- **Reglement:** Studienreglement 2016 (RSETHZ 323.1.1003.34) —"
+      },
+      "categories": [
+        {
+          "label": "a. Grundlagenfächer I (BP 35 + weitere 6)",
+          "kp": 41,
+          "kp_raw": "41"
+        },
+        {
+          "label": "b. Grundlagenfächer II",
+          "kp": 30,
+          "kp_raw": "30"
+        },
+        {
+          "label": "c. Allgemeine erdwissenschaftliche Fächer (mind. 35 + Komp.)",
+          "kp": 42,
+          "kp_raw": "42"
+        },
+        {
+          "label": "d. Integrierte Erdsysteme",
+          "kp": 15,
+          "kp_raw": "15"
+        },
+        {
+          "label": "e. Vertiefung — Geologie und Geophysik **OR** Klima und Wasser",
+          "kp": 34,
+          "kp_raw": "34"
+        },
+        {
+          "label": "f. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        },
+        {
+          "label": "g. Bachelor-Arbeit",
+          "kp": 12,
+          "kp_raw": "12"
+        }
+      ],
+      "caveats": [
+        "**Vertiefung e1 (Geologie und Geophysik):** Module (Methoden ≥ 7 KP +",
+        "**Vertiefung e2 (Klima und Wasser):** Modul Vertiefung ≥ 12 KP · Wahlfächer"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_staatswissenschaften_public_policy_berufsoffizier": {
+      "name_full": "BSc Staatswissenschaften / Public Policy (Berufsoffizier) (D-GESS)",
+      "name_de": "BSc Staatswissenschaften",
+      "name_en": "Public Policy (Berufsoffizier)",
+      "department": "D-GESS",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.1100.11",
+        "year": "2018",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.1100.11.pdf",
+        "raw": "- **Reglement:** Studienreglement 2018 vom 31.10.2017 (RSETHZ 323.1.1100.11) —"
+      },
+      "categories": [
+        {
+          "label": "a. Kernfächer (1: BP 40 KP; 2: übriges BSc 77 KP)",
+          "kp": 117,
+          "kp_raw": "117"
+        },
+        {
+          "label": "b. Wahlfächer",
+          "kp": 7,
+          "kp_raw": "7"
+        },
+        {
+          "label": "c. Sprachen (erste Fremdsprache 6 KP + zweite Fremdsprache 6 KP)",
+          "kp": 12,
+          "kp_raw": "12"
+        },
+        {
+          "label": "d. Praxismodule",
+          "kp": 18,
+          "kp_raw": "18"
+        },
+        {
+          "label": "e. Bachelor-Kolloquium (2 KP) + Bachelor-Arbeit (10 KP)",
+          "kp": 12,
+          "kp_raw": "12"
+        }
+      ],
+      "caveats": [
+        "**No SiP category** — Sprachen and the broader HSW orientation supersede it.",
+        "**Praxismodule:** governed by a separate Reglement 2018 für die Praxismodule"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_gesundheitswissenschaften_und_technologie": {
+      "name_full": "BSc Gesundheitswissenschaften und Technologie (D-HEST)",
+      "name_de": "BSc Gesundheitswissenschaften und Technologie",
+      "name_en": "BSc Gesundheitswissenschaften und Technologie",
+      "department": "D-HEST",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.2000.13",
+        "year": "2020",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.2000.13.pdf",
+        "raw": "- **Reglement:** Studienreglement 2020 (RSETHZ 323.1.2000.13) —"
+      },
+      "categories": [
+        {
+          "label": "a. Kernfächer des Basisjahres (BP 54 + Praktika 4)",
+          "kp": 58,
+          "kp_raw": "58"
+        },
+        {
+          "label": "b. Kernfächer übriges Bachelor-Studium (Prüfungsblöcke 42 + Einzelfächer/Praktika 12)",
+          "kp": 54,
+          "kp_raw": "54"
+        },
+        {
+          "label": "c. Schwerpunktfächer (3. Studienjahr) — Bewegungswiss. & Sport ≥ 8 · Medizintechnik ≥ 8 · Molek. Gesundheitswiss. ≥ 6 · Neurowissenschaften ≥ 6",
+          "kp": 48,
+          "kp_raw": "48"
+        },
+        {
+          "label": "d. Wahlfächer (davon max. 6 KP aus Sportpraxis)",
+          "kp": 14,
+          "kp_raw": "14"
+        },
+        {
+          "label": "e. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        }
+      ],
+      "caveats": [
+        "**Sport credits:** max **6 KP** Sportpraxis within the 14 KP Wahlfach-Kategorie"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_humanmedizin": {
+      "name_full": "BSc Humanmedizin (D-HEST)",
+      "name_de": "BSc Humanmedizin",
+      "name_en": "BSc Humanmedizin",
+      "department": "D-HEST",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.2000.21",
+        "year": "2018",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.2000.21.pdf",
+        "raw": "- **Reglement:** Studienreglement 2018 vom 19.06.2018 (RSETHZ 323.1.2000.21) —"
+      },
+      "categories": [
+        {
+          "label": "a. Fächer des Basisjahres (BP 52 + weitere 11)",
+          "kp": 63,
+          "kp_raw": "63"
+        },
+        {
+          "label": "b. Organsysteme und klinische Fächer sowie Naturwissenschaften des 2./3. Studienjahres",
+          "kp": 79,
+          "kp_raw": "79"
+        },
+        {
+          "label": "c. Medizinwissenschaftliche Fächer 2./3. Studienjahr (Kernfächer 30–38 + Komp.)",
+          "kp": 38,
+          "kp_raw": "38"
+        }
+      ],
+      "caveats": [
+        "**No SiP category** (regulated medical curriculum).",
+        "**Maximum 5 years** for Diplomantrag (Art. 41 Abs. 1); maximum **190 KP**",
+        "**Programme is subject to Bundesgesetze der universitären Medizinalberufe.**"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_lebensmittelwissenschaften_food_science": {
+      "name_full": "BSc Lebensmittelwissenschaften / Food Science (D-HEST)",
+      "name_de": "BSc Lebensmittelwissenschaften",
+      "name_en": "Food Science",
+      "department": "D-HEST",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0700.23",
+        "year": "2016",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0700.23.pdf",
+        "raw": "- **Reglement:** Studienreglement 2016 (RSETHZ 323.1.0700.23) —"
+      },
+      "categories": [
+        {
+          "label": "a. Grundlagenfächer I (BP 49 + weitere 6)",
+          "kp": 55,
+          "kp_raw": "55"
+        },
+        {
+          "label": "b. Grundlagenfächer II",
+          "kp": 42,
+          "kp_raw": "42"
+        },
+        {
+          "label": "c. Lebensmittelwissenschaftliche Fachgrundlagen",
+          "kp": 19,
+          "kp_raw": "19"
+        },
+        {
+          "label": "d. Lebensmittelwissenschaftliche Laborpraktika",
+          "kp": 11,
+          "kp_raw": "11"
+        },
+        {
+          "label": "e. Lebensmittelwissenschaftliche Fächer",
+          "kp": 32,
+          "kp_raw": "32"
+        },
+        {
+          "label": "f. Wahlfächer",
+          "kp": 3,
+          "kp_raw": "3"
+        },
+        {
+          "label": "g. Exkursionen",
+          "kp": 3,
+          "kp_raw": "3"
+        },
+        {
+          "label": "h. Bachelor-Arbeit",
+          "kp": 15,
+          "kp_raw": "15"
+        }
+      ],
+      "caveats": [
+        "**No explicit SiP category** in the table — verified in Art. 34. (SiP-eligible"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_informatik_computer_science": {
+      "name_full": "BSc Informatik / Computer Science (D-INFK)",
+      "name_de": "BSc Informatik",
+      "name_en": "Computer Science",
+      "department": "D-INFK",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.1600.12",
+        "year": "2016",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.1600.12.pdf",
+        "raw": "- **Reglement:** Studienreglement 2016 vom 31.05.2016 (RSETHZ 323.1.1600.12) —"
+      },
+      "categories": [
+        {
+          "label": "a. Fächer des Basisjahres",
+          "kp": 56,
+          "kp_raw": "56"
+        },
+        {
+          "label": "1. Grundlagenfächer und Kernfächer (mind. 84 KP): Grundlagenfächer ≥ 45 KP · Kernfächer ≥ 32 KP (aus ≥ 2 Vertiefungsrichtungen)",
+          "kp": null,
+          "kp_raw": "—"
+        },
+        {
+          "label": "2. Wahlfächer (filler)",
+          "kp": null,
+          "kp_raw": "—"
+        },
+        {
+          "label": "c. Seminar",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "d. Ergänzung",
+          "kp": 5,
+          "kp_raw": "5"
+        },
+        {
+          "label": "e. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        },
+        {
+          "label": "f. Bachelor-Arbeit",
+          "kp": 10,
+          "kp_raw": "10"
+        }
+      ],
+      "caveats": [
+        "**Filler rule (Art. 37 Abs. 2):** the 5 KP gap to 180 must be earned in",
+        "**Kernfächer rule:** ≥ 32 KP, from **at least two** Vertiefungsrichtungen.",
+        "**Wahlfächer:** if Grundlagen+Kern ≥ 84 KP but < 96 KP, the rest fills via"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_elektrotechnik_und_informationstechnologie": {
+      "name_full": "BSc Elektrotechnik und Informationstechnologie (D-ITET)",
+      "name_de": "BSc Elektrotechnik und Informationstechnologie",
+      "name_en": "BSc Elektrotechnik und Informationstechnologie",
+      "department": "D-ITET",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0350.12",
+        "year": "2018",
+        "stand": "12.03.2025",
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0350.12.pdf",
+        "raw": "- **Reglement:** Studienreglement 2018 vom 31.10.2017 (RSETHZ 323.1.0350.12) —"
+      },
+      "categories": [
+        {
+          "label": "a. Fächer des Basisjahres (BP 53 + obl. Praktika 3)",
+          "kp": 56,
+          "kp_raw": "56"
+        },
+        {
+          "label": "b. Grundlagenfächer des 2. Studienjahres (Prüfungsblöcke 52 + obl. Praktikum 1)",
+          "kp": 53,
+          "kp_raw": "53"
+        },
+        {
+          "label": "c. Weitere Grundlagenfächer",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "d. Kernfächer des 3. Studienjahres (≥ 3 Kernfächer)",
+          "kp": 18,
+          "kp_raw": "18"
+        },
+        {
+          "label": "e. Wahlfächer",
+          "kp": 6,
+          "kp_raw": "6"
+        },
+        {
+          "label": "f. Praktika, Projekte, Seminare",
+          "kp": 15,
+          "kp_raw": "15"
+        },
+        {
+          "label": "g. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        },
+        {
+          "label": "h. Bachelor-Projekt",
+          "kp": 12,
+          "kp_raw": "12"
+        }
+      ],
+      "caveats": [
+        "**Filler rule (Art. 39 Abs. 6):** missing 6 KP can be earned in any of",
+        "**Kernfächer minimum:** at least **three** Kernfächer of the 3rd year must be",
+        "**Wahlfächer scope:** any ETH learning unit except units that D-ITET"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_mathematik": {
+      "name_full": "BSc Mathematik (D-MATH)",
+      "name_de": "BSc Mathematik",
+      "name_en": "BSc Mathematik",
+      "department": "D-MATH",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0900.14",
+        "year": "2024",
+        "stand": null,
+        "url": "https://metaphor.ethz.ch/x/2025/hs/401-3005-00L/texts/mathe_bsc_reglement_2024.pdf",
+        "raw": "- **Reglement:** Studienreglement 2024 vom 26.10.2023 (RSETHZ 323.1.0900.14) —"
+      },
+      "categories": [
+        {
+          "label": "a. Obligatorische Fächer des Basisjahres",
+          "kp": 51,
+          "kp_raw": "51"
+        },
+        {
+          "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums",
+          "kp": 51,
+          "kp_raw": "51"
+        },
+        {
+          "label": "c. Ergänzungsfächer",
+          "kp": 11,
+          "kp_raw": "11"
+        },
+        {
+          "label": "d. Wahlpflichtfächer",
+          "kp": 11,
+          "kp_raw": "11"
+        },
+        {
+          "label": "e. Kernfächer und Wahlfächer (Kern ≥ 21 KP, davon ≥ 7 KP reine Math + ≥ 7 KP angewandte Math)",
+          "kp": 30,
+          "kp_raw": "30"
+        },
+        {
+          "label": "f. Seminare und Semesterarbeiten (Seminar ≥ 2 KP)",
+          "kp": 4,
+          "kp_raw": "4"
+        },
+        {
+          "label": "g. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        }
+      ],
+      "caveats": [
+        "**Filler rule (Art. 38 Abs. 2):** remaining 16 KP fill in any of",
+        "Ergänzungsfächer: up to 7 KP extra beyond the required 11 (max 18 KP).",
+        "SiP: up to 3 KP extra beyond the required 6 (max 9 KP).",
+        "**Special rule (Art. 38 Abs. 3):** of the 30 KP in cat. e, **≥ 21 KP must come",
+        "**Seminarrule:** ≥ 2 of the 4 KP in cat. f must be a Seminar.",
+        "**Erg/Wahlp:** at least 2 separate learning units required in each, even if"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_rechnergestuetzte_wissenschaften_computational_science_and_engineering": {
+      "name_full": "BSc Rechnergestützte Wissenschaften / Computational Science and Engineering (D-MATH)",
+      "name_de": "BSc Rechnergestützte Wissenschaften",
+      "name_en": "Computational Science and Engineering",
+      "department": "D-MATH",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0900.56",
+        "year": "2018",
+        "stand": "7.11.2024",
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0900.56.pdf",
+        "raw": "- **Reglement:** Studienreglement 2018 vom 27.03.2018 (RSETHZ 323.1.0900.56) —"
+      },
+      "categories": [
+        {
+          "label": "a. Fächer des Basisjahres",
+          "kp": 56,
+          "kp_raw": "56"
+        },
+        {
+          "label": "1. Grundlagenfächer ≥ 56 KP",
+          "kp": null,
+          "kp_raw": "—"
+        },
+        {
+          "label": "2. Kernfächer ≥ 20 KP (3 Lerneinheiten)",
+          "kp": null,
+          "kp_raw": "—"
+        },
+        {
+          "label": "3. Vertiefungsgebiete ≥ 6 KP (2 Lerneinheiten)",
+          "kp": null,
+          "kp_raw": "—"
+        },
+        {
+          "label": "4. Wahlfächer ≥ 6 KP (2 Lerneinheiten)",
+          "kp": null,
+          "kp_raw": "—"
+        },
+        {
+          "label": "c. Fallstudien (≥ 2 Lerneinheiten)",
+          "kp": 6,
+          "kp_raw": "6"
+        },
+        {
+          "label": "d. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        },
+        {
+          "label": "e. Bachelor-Arbeit",
+          "kp": 14,
+          "kp_raw": "14"
+        }
+      ],
+      "caveats": [
+        "**Special unit-count rules (Art. 42 Abs. 2):** at least 2 distinct learning"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_materialwissenschaft": {
+      "name_full": "BSc Materialwissenschaft (D-MATL)",
+      "name_de": "BSc Materialwissenschaft",
+      "name_en": "BSc Materialwissenschaft",
+      "department": "D-MATL",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.1700.18",
+        "year": "2017",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.1700.18.pdf",
+        "raw": "- **Reglement:** Studienreglement 2017 vom 22.08.2017 (RSETHZ 323.1.1700.18) —"
+      },
+      "categories": [
+        {
+          "label": "a. Grundlagenfächer Teil 1 (Basisjahr: BP 45 + weitere 15)",
+          "kp": 60,
+          "kp_raw": "60"
+        },
+        {
+          "label": "b. Grundlagenfächer Teil 2",
+          "kp": 77,
+          "kp_raw": "77"
+        },
+        {
+          "label": "c. Grundlagenfächer Teil 3 (mind. 18, max. 21) + Kompensationsfach (0)",
+          "kp": 21,
+          "kp_raw": "21"
+        },
+        {
+          "label": "d. Industriepraktikum oder Forschungsprojekt",
+          "kp": 10,
+          "kp_raw": "10"
+        },
+        {
+          "label": "e. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "f. Bachelor-Arbeit",
+          "kp": 10,
+          "kp_raw": "10"
+        }
+      ],
+      "caveats": [
+        "**Special rule (Art. 34 Abs. 3):** if a 3rd-part Grundlagenfach is endgültig",
+        "**SiP is only 2 KP** — this is one of the lowest SiP quotas at ETH."
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_maschineningenieurwissenschaften_mechanical_engineering": {
+      "name_full": "BSc Maschineningenieurwissenschaften / Mechanical Engineering (D-MAVT)",
+      "name_de": "BSc Maschineningenieurwissenschaften",
+      "name_en": "Mechanical Engineering",
+      "department": "D-MAVT",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0300.12",
+        "year": "2022",
+        "stand": "7.11.2024",
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0300.12.pdf",
+        "raw": "- **Reglement:** Studienreglement 2022 vom 24.02.2022 (RSETHZ 323.1.0300.12) —"
+      },
+      "categories": [
+        {
+          "label": "a. Obligatorische Fächer des Basisjahres (BP 54 + Einzel 5)",
+          "kp": 59,
+          "kp_raw": "59"
+        },
+        {
+          "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums",
+          "kp": 52,
+          "kp_raw": "52"
+        },
+        {
+          "label": "c. Projekt",
+          "kp": 3,
+          "kp_raw": "3"
+        },
+        {
+          "label": "d. Wahlfächer",
+          "kp": 24,
+          "kp_raw": "24"
+        },
+        {
+          "label": "e. **Fokus und Bachelor-Arbeit** — two variants:",
+          "kp": 36,
+          "kp_raw": "36"
+        },
+        {
+          "label": "1. Fokus-Vertiefung (20 KP) + grosse Bachelor-Arbeit (16 KP); **or**",
+          "kp": null,
+          "kp_raw": "—"
+        },
+        {
+          "label": "2. Fokus-Projekt (20 KP) + Vorlesungen (8 KP) + kleine Bachelor-Arbeit (8 KP)",
+          "kp": null,
+          "kp_raw": "—"
+        },
+        {
+          "label": "f. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        }
+      ],
+      "caveats": [
+        "**Basisprüfung:** aufgeteilt (BPb 1 + BPb 2), 54 KP total of which both blocks",
+        "**Wegleitung:** [BSc Studienführer 2022](https://ethz.ch/content/dam/ethz/special-interest/mavt/department-dam/studium/bachelor/documents/BSc%20Studienf%C3%BChrer_2022_Regl.22.pdf)"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_physik": {
+      "name_full": "BSc Physik (D-PHYS)",
+      "name_de": "BSc Physik",
+      "name_en": "BSc Physik",
+      "department": "D-PHYS",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0900.23",
+        "year": "2021",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0900.23.pdf",
+        "raw": "- **Reglement:** Studienreglement 2021 (RSETHZ 323.1.0900.23) —"
+      },
+      "categories": [
+        {
+          "label": "a. Obligatorische Fächer des Basisjahres",
+          "kp": 58,
+          "kp_raw": "58"
+        },
+        {
+          "label": "b. Obligatorische Fächer des übrigen Bachelor-Studiums",
+          "kp": 59,
+          "kp_raw": "59"
+        },
+        {
+          "label": "c. Kernfächer (1. Experimentalphysikalische ≥ 8; 2. Theoretische ≥ ?)",
+          "kp": 24,
+          "kp_raw": "24"
+        },
+        {
+          "label": "d. Wahlfächer",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "e. Praktika, Proseminare, Semesterarbeiten (Praktika 17 + Proseminare/SA/Forschungspraktika ≥ 8)",
+          "kp": 25,
+          "kp_raw": "25"
+        },
+        {
+          "label": "f. Wissenschaft im Kontext",
+          "kp": 6,
+          "kp_raw": "6"
+        }
+      ],
+      "caveats": [
+        "**Special rules:** ≥ 8 of the 24 Kernfächer-KP must be from Experimentalphysik"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_agrarwissenschaften_agricultural_sciences": {
+      "name_full": "BSc Agrarwissenschaften / Agricultural Sciences (D-USYS)",
+      "name_de": "BSc Agrarwissenschaften",
+      "name_en": "Agricultural Sciences",
+      "department": "D-USYS",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.0700.12",
+        "year": "2016",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.0700.12.pdf",
+        "raw": "- **Reglement:** Studienreglement 2016 (RSETHZ 323.1.0700.12) —"
+      },
+      "categories": [
+        {
+          "label": "a. Grundlagenfächer Basisjahr (BP 51 + weitere 6)",
+          "kp": 57,
+          "kp_raw": "57"
+        },
+        {
+          "label": "b. Grundlagenfächer 2. Studienjahr",
+          "kp": 27,
+          "kp_raw": "27"
+        },
+        {
+          "label": "c. Agrarwissenschaftliche Lehrgebiete (Grundlagen 6 + Fachbereiche 49: Agrarökonomie 15 / Pflanzenwiss. 19 / Tierwiss. 15)",
+          "kp": 55,
+          "kp_raw": "55"
+        },
+        {
+          "label": "d. Methoden",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "e. Wahlfächer",
+          "kp": 6,
+          "kp_raw": "6"
+        },
+        {
+          "label": "f. Exkursionen",
+          "kp": 3,
+          "kp_raw": "3"
+        },
+        {
+          "label": "g. Agrar-Praktikum",
+          "kp": 10,
+          "kp_raw": "10"
+        },
+        {
+          "label": "h. Bachelor-Arbeit",
+          "kp": 14,
+          "kp_raw": "14"
+        }
+      ],
+      "caveats": [
+        "**No SiP category** in the explicit table — Agrarwissenschaften historically"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "bsc_umweltnaturwissenschaften_environmental_sciences": {
+      "name_full": "BSc Umweltnaturwissenschaften / Environmental Sciences (D-USYS)",
+      "name_de": "BSc Umweltnaturwissenschaften",
+      "name_en": "Environmental Sciences",
+      "department": "D-USYS",
+      "total_kp": 180,
+      "reglement": {
+        "rsethz": "323.1.1002.25",
+        "year": "2016",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/323.1.1002.25.pdf",
+        "raw": "- **Reglement:** Studienreglement 2016 vom 12.01.2016 (RSETHZ 323.1.1002.25) —"
+      },
+      "categories": [
+        {
+          "label": "a. Grundlagenfächer I",
+          "kp": 56,
+          "kp_raw": "56"
+        },
+        {
+          "label": "b. Grundlagenfächer II",
+          "kp": 46,
+          "kp_raw": "46"
+        },
+        {
+          "label": "c. Systemvertiefung (Kernfächer ≥ 12 + Praktikum 7 + Seminare 6)",
+          "kp": 25,
+          "kp_raw": "25"
+        },
+        {
+          "label": "d. **Sozial- und Geisteswissenschaften** (Pflichtteil ≥ 12 + Komp. + Wahl)",
+          "kp": 19,
+          "kp_raw": "19"
+        },
+        {
+          "label": "e. Naturwissenschaftliche und technische Wahlfächer",
+          "kp": 23,
+          "kp_raw": "23"
+        },
+        {
+          "label": "f. Bachelor-Arbeit",
+          "kp": 10,
+          "kp_raw": "10"
+        }
+      ],
+      "caveats": [
+        "**Important:** D-USYS Umweltnaturwiss. has a *dedicated* GESS category of"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "msc_architektur": {
+      "name_full": "MSc Architektur (D-ARCH)",
+      "name_de": "MSc Architektur",
+      "name_en": "MSc Architektur",
+      "department": "D-ARCH",
+      "total_kp": 120,
+      "reglement": {
+        "rsethz": "324.1.0100.12",
+        "year": "2017",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/324.1.0100.12.pdf",
+        "raw": "- **Reglement:** Studienreglement 2017 (RSETHZ 324.1.0100.12) —"
+      },
+      "categories": [
+        {
+          "label": "a. Kernfächer — 4 Bereiche, each ≥ 4 KP: Geschichte/Theorie · Denkmalpflege/Bauforschung · Landschaftsarchitektur/Städtebau · Technologie in der Architektur",
+          "kp": 24,
+          "kp_raw": "24"
+        },
+        {
+          "label": "b. Entwurf",
+          "kp": 42,
+          "kp_raw": "42"
+        },
+        {
+          "label": "c. Vertiefungsarbeiten",
+          "kp": 12,
+          "kp_raw": "12"
+        },
+        {
+          "label": "d. Wahlfächer",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "e. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "f. Seminarwochen",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "g. Master-Arbeit",
+          "kp": 30,
+          "kp_raw": "30"
+        }
+      ],
+      "caveats": [],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "msc_mathematik_three_diplomas": {
+      "name_full": "MSc Mathematik (D-MATH) — three diplomas",
+      "name_de": "MSc Mathematik  — three diplomas",
+      "name_en": "MSc Mathematik  — three diplomas",
+      "department": "D-MATH",
+      "total_kp": 90,
+      "reglement": {
+        "rsethz": "324.1.0900.11",
+        "year": "2012",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/324.1.0900.11.pdf",
+        "raw": "- **Reglement:** Studienreglement 2012 vom 21.08.2012 (RSETHZ 324.1.0900.11) —"
+      },
+      "categories": [
+        {
+          "label": "a. Kernfächer und Wahlfächer (Kern ≥ 14 KP)",
+          "kp": 38,
+          "kp_raw": "38"
+        },
+        {
+          "label": "b. Seminare und Semesterarbeiten (Seminar ≥ 4)",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "c. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "d. Master-Arbeit",
+          "kp": 30,
+          "kp_raw": "30"
+        },
+        {
+          "label": "a. Kernfächer und Wahlfächer (Kern ≥ 14 KP, of which ≥ 14 KP from \"angewandte\" Kern/Wahl)",
+          "kp": 26,
+          "kp_raw": "26"
+        },
+        {
+          "label": "b. Anwendungsgebiet",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "c. Seminare und Semesterarbeiten",
+          "kp": 12,
+          "kp_raw": "12"
+        },
+        {
+          "label": "d. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "e. Master-Arbeit",
+          "kp": 30,
+          "kp_raw": "30"
+        },
+        {
+          "label": "… (further filler categories — see Art. 32 of the Reglement)",
+          "kp": null,
+          "kp_raw": "—"
+        }
+      ],
+      "caveats": [
+        "The same Reglement issues **three different MSc diplomas** depending on track:",
+        "**MSc ETH in Mathematik** (Art. 31)",
+        "**MSc ETH in Angewandter Mathematik** / Applied Mathematics (Art. 32)",
+        "**MSc ETH in Mathematik mit Vertiefung in Operations Research / Statistik / Theoretischer Informatik** (Art. 33 ff.)",
+        "**Category breakdown — MSc Mathematik (Art. 31):**",
+        "**Category breakdown — MSc Angewandte Mathematik (Art. 32):**",
+        "**MSc Mathematik mit Vertiefung:** specialised tracks (Operations Research,"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "msc_physik": {
+      "name_full": "MSc Physik (D-PHYS)",
+      "name_de": "MSc Physik",
+      "name_en": "MSc Physik",
+      "department": "D-PHYS",
+      "total_kp": 90,
+      "reglement": {
+        "rsethz": "324.1.0900.21",
+        "year": "2014",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/324.1.0900.21.pdf",
+        "raw": "- **Reglement:** Studienreglement 2014 (RSETHZ 324.1.0900.21) —"
+      },
+      "categories": [
+        {
+          "label": "a. Kernfächer (Theoretische ≥ 10 + Experimentelle ≥ 10)",
+          "kp": 30,
+          "kp_raw": "30"
+        },
+        {
+          "label": "b. Wahlfächer (Physikalische und mathematische ≥ 10; Allgemeine)",
+          "kp": 20,
+          "kp_raw": "20"
+        },
+        {
+          "label": "c. Proseminare und Semesterarbeiten",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "d. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "e. Master-Arbeit",
+          "kp": 30,
+          "kp_raw": "30"
+        }
+      ],
+      "caveats": [
+        "**Cross-credit (Art. 30 Abs. 4):** Kernfach-KP may also be applied to the"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "msc_chemie": {
+      "name_full": "MSc Chemie (D-CHAB)",
+      "name_de": "MSc Chemie",
+      "name_en": "MSc Chemie",
+      "department": "D-CHAB",
+      "total_kp": 90,
+      "reglement": {
+        "rsethz": "324.1.0400.11",
+        "year": "2018",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/324.1.0400.11.pdf",
+        "raw": "- **Reglement:** Studienreglement 2018 (RSETHZ 324.1.0400.11) —"
+      },
+      "categories": [
+        {
+          "label": "a. Kernfächer + Kompensationsfächer (Anorg. ≥ 5 + Org. ≥ 5 + Phys. Chem. ≥ 5)",
+          "kp": 18,
+          "kp_raw": "18"
+        },
+        {
+          "label": "b. Wahlfächer",
+          "kp": 19,
+          "kp_raw": "19"
+        },
+        {
+          "label": "c. Projektarbeiten, Industriepraktikum und Praktikum (1 Projektarbeit ≥ 13 KP + 13 KP entweder zweite Projektarbeit oder Industriepraktikum)",
+          "kp": 26,
+          "kp_raw": "26"
+        },
+        {
+          "label": "d. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "e. Master-Arbeit",
+          "kp": 25,
+          "kp_raw": "25"
+        }
+      ],
+      "caveats": [],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "msc_chemieingenieurwissenschaften": {
+      "name_full": "MSc Chemieingenieurwissenschaften (D-CHAB)",
+      "name_de": "MSc Chemieingenieurwissenschaften",
+      "name_en": "MSc Chemieingenieurwissenschaften",
+      "department": "D-CHAB",
+      "total_kp": 90,
+      "reglement": {
+        "rsethz": "324.1.0400.21",
+        "year": "2018",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/324.1.0400.21.pdf",
+        "raw": "- **Reglement:** Studienreglement 2018 (RSETHZ 324.1.0400.21) —"
+      },
+      "categories": [
+        {
+          "label": "a. Kernfächer (Biochem. Eng. ≥ 4 + Products/Materials ≥ 4 + Process Design ≥ 4 + Catalysis/Separation ≥ 4)",
+          "kp": 24,
+          "kp_raw": "24"
+        },
+        {
+          "label": "b. Wahlfächer (≥ 13 KP must be from D-CHAB course catalogue)",
+          "kp": 23,
+          "kp_raw": "23"
+        },
+        {
+          "label": "c. Fallstudie",
+          "kp": 3,
+          "kp_raw": "3"
+        },
+        {
+          "label": "d. Projektarbeit + Industriepraktikum (frei wählbar)",
+          "kp": 13,
+          "kp_raw": "13"
+        },
+        {
+          "label": "e. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "f. Master-Arbeit",
+          "kp": 25,
+          "kp_raw": "25"
+        }
+      ],
+      "caveats": [],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "msc_interdisziplinaere_naturwissenschaften": {
+      "name_full": "MSc Interdisziplinäre Naturwissenschaften (D-CHAB)",
+      "name_de": "MSc Interdisziplinäre Naturwissenschaften",
+      "name_en": "MSc Interdisziplinäre Naturwissenschaften",
+      "department": "D-CHAB",
+      "total_kp": 90,
+      "reglement": {
+        "rsethz": "324.1.0400.31",
+        "year": "2020",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/324.1.0400.31.pdf",
+        "raw": "- **Reglement:** Studienreglement 2020 (RSETHZ 324.1.0400.31) —"
+      },
+      "categories": [
+        {
+          "label": "a. Fächer der gewählten Vertiefung",
+          "kp": 30,
+          "kp_raw": "30"
+        },
+        {
+          "label": "b. Allgemeine Fächer",
+          "kp": 10,
+          "kp_raw": "10"
+        },
+        {
+          "label": "c. Proseminare, Praktika, Projektarbeiten, Semesterarbeiten",
+          "kp": 20,
+          "kp_raw": "20"
+        },
+        {
+          "label": "d. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "e. Master-Arbeit",
+          "kp": 20,
+          "kp_raw": "20"
+        }
+      ],
+      "caveats": [
+        "**Filler rule:** the 8 missing KP can be earned in any of the above; total"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "msc_informatik_computer_science": {
+      "name_full": "MSc Informatik / Computer Science (D-INFK)",
+      "name_de": "MSc Informatik",
+      "name_en": "Computer Science",
+      "department": "D-INFK",
+      "total_kp": 120,
+      "reglement": {
+        "rsethz": "324.1.1600.12",
+        "year": "2020",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/324.1.1600.12.pdf",
+        "raw": "- **Reglement:** Studienreglement 2020 (RSETHZ 324.1.1600.12) —"
+      },
+      "categories": [
+        {
+          "label": "a. Vertiefung (Major) — Kernfächer 16 + Wahlfächer",
+          "kp": 26,
+          "kp_raw": "26"
+        },
+        {
+          "label": "b. Seminar",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "c. Praktische Arbeit (max. 10 KP anrechenbar)",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "d. Ergänzung (Minor)",
+          "kp": 18,
+          "kp_raw": "18"
+        },
+        {
+          "label": "e. Vertiefungsübergreifende Fächer",
+          "kp": 16,
+          "kp_raw": "16"
+        },
+        {
+          "label": "f. Freie Wahlfächer",
+          "kp": 0,
+          "kp_raw": "0"
+        },
+        {
+          "label": "g. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "h. Master-Arbeit",
+          "kp": 30,
+          "kp_raw": "30"
+        }
+      ],
+      "caveats": [
+        "**Major specialisations** (Vertiefungen) — students choose **one Major** plus",
+        "Computer Engineering · Data Management Systems · Foundations of Computer Science",
+        "Information Security · Machine Intelligence · Theoretical Computer Science",
+        "Visual and Interactive Computing · Software Engineering · Systems",
+        "**Filler rule (Art. 36 Abs. 2):** 18 KP filler in *any* category except",
+        "**Cross-credit (Art. 36 Abs. 4):** Kern/Wahl der Vertiefung can also count"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "msc_data_science_joint_d_infk_d_math_d_itet": {
+      "name_full": "MSc Data Science (Joint, D-INFK/D-MATH/D-ITET)",
+      "name_de": "MSc Data Science (Joint, D-INFK",
+      "name_en": "D-MATH/D-ITET)",
+      "department": null,
+      "total_kp": 120,
+      "reglement": {
+        "rsethz": "324.1.1600.21",
+        "year": "2023",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/special-interest/infk/department/Images%20and%20Content/Studies/Forms%20and%20Documents/2023_Studienreglement_DS.pdf",
+        "raw": null
+      },
+      "categories": [
+        {
+          "label": "a. Kernfächer (Datenanalyse ≥ 16 + Datenmgmt/-verarbeitung ≥ 16)",
+          "kp": 32,
+          "kp_raw": "32"
+        },
+        {
+          "label": "b. Wahlfächer (fachspezifisch ≥ 20 + interdisziplinär ≥ 8 + weitere)",
+          "kp": 28,
+          "kp_raw": "28"
+        },
+        {
+          "label": "c. Data Science Projektkurs",
+          "kp": 10,
+          "kp_raw": "10"
+        },
+        {
+          "label": "d. Seminar",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "e. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "f. Master-Arbeit",
+          "kp": 30,
+          "kp_raw": "30"
+        }
+      ],
+      "caveats": [
+        "**Reglement (current):** Studienreglement 2023 (RSETHZ 324.1.1600.21) —",
+        "**Category breakdown (Reglement 2023, Art. 31):**",
+        "**Filler rule:** missing 16 KP fill in Kernfächer or Wahlfächer.",
+        "**Reglement 2017 (legacy):** Cat. a \"Kernfächer und Interdisziplinäre"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "ma_geschichte_und_philosophie_des_wissens": {
+      "name_full": "MA Geschichte und Philosophie des Wissens (D-GESS)",
+      "name_de": "MA Geschichte und Philosophie des Wissens",
+      "name_en": "MA Geschichte und Philosophie des Wissens",
+      "department": "D-GESS",
+      "total_kp": 120,
+      "reglement": {
+        "rsethz": "324.1.1200.22",
+        "year": "2017",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/special-interest/study-programme-websites/magpw-dam/MAGPW_2024/Studienreglement_2017.pdf",
+        "raw": "- **Reglement:** Studienreglement 2017 vom 5.9.2017 (RSETHZ 324.1.1200.22) —"
+      },
+      "categories": [
+        {
+          "label": "a. Grundlagenfächer (Einführungsveranstaltungen 44 + Semesterbericht 3 + Seminararbeit 5)",
+          "kp": 52,
+          "kp_raw": "52"
+        },
+        {
+          "label": "b. Vertiefungsfächer (Lektüreessays) — ≥ 3 essays",
+          "kp": 30,
+          "kp_raw": "30"
+        },
+        {
+          "label": "c. Forschungskolloquien",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "d. Master-Arbeit",
+          "kp": 30,
+          "kp_raw": "30"
+        }
+      ],
+      "caveats": [
+        "**No SiP category** — the programme itself sits in D-GESS and is by",
+        "**Special rule (Art. 31 Abs. 2):** of the 44 KP Einführungsveranstaltungen,"
+      ],
+      "parse_warnings": [],
+      "partial": false
+    },
+    "msc_maschineningenieurwissenschaften_mechanical_engineering": {
+      "name_full": "MSc Maschineningenieurwissenschaften / Mechanical Engineering (D-MAVT, Reglement 2005, see notes)",
+      "name_de": "MSc Maschineningenieurwissenschaften",
+      "name_en": "Mechanical Engineering",
+      "department": "D-MAVT, Reglement 2005, see notes",
+      "total_kp": 90,
+      "reglement": {
+        "rsethz": "324.1.0300.1",
+        "year": "2005",
+        "stand": null,
+        "url": "https://ethz.ch/content/dam/ethz/main/eth-zurich/organisation/rechtssammlung/324.1.0300.1.pdf",
+        "raw": null
+      },
+      "categories": [
+        {
+          "label": "a. Kernfächer",
+          "kp": 36,
+          "kp_raw": "36"
+        },
+        {
+          "label": "b. Multidisziplinfächer",
+          "kp": 6,
+          "kp_raw": "6"
+        },
+        {
+          "label": "c. Wissenschaft im Kontext",
+          "kp": 2,
+          "kp_raw": "2"
+        },
+        {
+          "label": "d. Studienarbeit",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "e. Industrie-Praxis",
+          "kp": 8,
+          "kp_raw": "8"
+        },
+        {
+          "label": "f. Master-Arbeit",
+          "kp": 30,
+          "kp_raw": "30"
+        }
+      ],
+      "caveats": [
+        "**Reglement (legacy in force on 2026-05-11):** Studienreglement 2005 vom",
+        "A newer Master Reglement (the \"Reglement 2024\" pilot) is in deployment at",
+        "**Category breakdown (Reglement 2005, Art. 34):**",
+        "**Major / Vertiefung:** chosen from the D-MAVT Vertiefungs-Katalog (e.g."
+      ],
+      "parse_warnings": [],
+      "partial": false
+    }
+  }
+}
